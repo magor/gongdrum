@@ -94,6 +94,7 @@ a {
 
 .hero,
 .section,
+.about,
 .experience,
 .contact {
   margin: 0 auto;
@@ -154,6 +155,7 @@ h3 {
 
 .hero-text,
 .section-heading p,
+.about-copy p,
 .contact p {
   color: #654a3d;
   font-size: 1.15rem;
@@ -251,7 +253,7 @@ h3 {
 .product-grid {
   display: grid;
   gap: 1.25rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
 .product-card {
@@ -271,13 +273,56 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.product-image-2 {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(255, 248, 237, 0.75) 0 8%, transparent 9%),
+    radial-gradient(circle, #8f4d32 0 35%, #22130f 36% 58%, transparent 59%),
+    linear-gradient(135deg, #4b2b1e, #d1964f);
+}
+
+.product-image-3 {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(255, 248, 237, 0.9) 0 10%, transparent 11%),
+    radial-gradient(circle, #ddb35e 0 32%, #7f4d2d 33% 56%, transparent 57%),
+    linear-gradient(135deg, #f3dfbd, #c07a3e);
+}
+
+.product-image-4 {
+  background:
+    radial-gradient(circle at 50% 52%, rgba(255, 248, 237, 0.85) 0 7%, transparent 8%),
+    radial-gradient(circle, #b36539 0 37%, #352019 38% 60%, transparent 61%),
+    linear-gradient(135deg, #e3c39a, #6b3b26);
+}
+
+.product-meta {
+  color: #a5632a;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.55rem;
+  text-transform: uppercase;
+}
+
 .product-card p {
   color: #6f5142;
 }
 
-.product-card span {
+.product-card a {
   color: #a5632a;
+  display: inline-block;
   font-weight: 800;
+  margin-top: 0.5rem;
+}
+
+.about {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+.about-copy {
+  display: grid;
+  gap: 1rem;
 }
 
 .experience {
@@ -310,6 +355,56 @@ h3 {
   padding: 1rem;
 }
 
+.workshop-grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.workshop-card,
+.pricing-strip,
+.news li {
+  background: rgba(255, 248, 237, 0.72);
+  border: 1px solid rgba(58, 33, 23, 0.1);
+  border-radius: 1.5rem;
+}
+
+.workshop-card {
+  padding: 1.5rem;
+}
+
+.workshop-card p {
+  color: #6f5142;
+  margin-bottom: 0;
+}
+
+.pricing-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+}
+
+.pricing-strip span {
+  color: #3a2117;
+  font-weight: 800;
+}
+
+.news ul {
+  display: grid;
+  gap: 0.9rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news li {
+  color: #604438;
+  padding: 1rem 1.25rem;
+}
+
 .contact {
   margin-bottom: 3rem;
   text-align: center;
@@ -329,6 +424,8 @@ h3 {
   }
 
   .hero,
+  .about,
+  .workshop-grid,
   .experience {
     grid-template-columns: 1fr;
   }
