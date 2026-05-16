@@ -8,9 +8,217 @@
       content="Ručně kované GongDrumy Vojtěcha Hrubého pro meditaci, rituál, workshopy a hluboký živý zvuk."
     />
     <title>Gong Drum — ručně kované GongDrumy</title>
+    <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <main class="site-shell">
+      <nav class="nav" aria-label="Hlavní navigace">
+        <a class="logo" href="#top" aria-label="Gong Drum home">
+          <span class="logo-mark"></span>
+          Gong Drum
+        </a>
+        <div class="nav-links">
+          <a href="#collection">Galerie</a>
+          <a href="#about">O nástroji</a>
+          <a href="#workshops">Workshopy</a>
+          <a class="nav-cta" href="#contact">Poptávka</a>
+        </div>
+      </nav>
+
+      <section id="top" class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Ručně kované GongDrumy</p>
+          <h1>Tvoř vesmír hlubokým, živým zvukem.</h1>
+          <p class="hero-text">
+            Originální nástroje Vojtěcha Hrubého spojují gong a šamanský buben.
+            Každý kus je laděn s respektem k proporcím, harmonii a osobitému příběhu.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#collection">Prohlédnout galerii</a>
+            <a class="button secondary" href="#contact">Chci podobný kus</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Vybraný GongDrum">
+          <div class="gong-illustration">
+            <span class="gong-ring ring-one"></span>
+            <span class="gong-ring ring-two"></span>
+            <span class="gong-ring ring-three"></span>
+          </div>
+          <p>Vyrobeno v dílně Gong Drum</p>
+          <strong>Nástroj pro meditaci, rituál i společné hraní</strong>
+        </div>
+      </section>
+
+      <section id="collection" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Galerie GongDrumů</p>
+          <h2>Každý nástroj má vlastní hlas.</h2>
+          <p>
+            Ukázkový výběr nástrojů přibližuje velikosti, ladění a nálady GongDrumů.
+            Fotografie a audio ukázky lze doplnit v další verzi webu.
+          </p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image product-image-1" aria-hidden="true"></div>
+            <div class="product-meta">průměr 1000 mm</div>
+            <h3>Window to the Universe</h3>
+            <p>
+              Hluboký základ inspirovaný solfeggio frekvencí stability 174 Hz a zářivé
+              alikvoty pro nové začátky.
+            </p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-2" aria-hidden="true"></div>
+            <div class="product-meta">průměr 1000 mm</div>
+            <h3>Radegast</h3>
+            <p>Temný zvuk hlubokého vesmíru laděný do devíti tónů.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-3" aria-hidden="true"></div>
+            <div class="product-meta">průměr 480 mm</div>
+            <h3>Little Thai</h3>
+            <p>Hravý, pozitivní nástroj s jasnou odezvou a přátelským charakterem.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-4" aria-hidden="true"></div>
+            <div class="product-meta">průměr 450 mm</div>
+            <h3>Insight</h3>
+            <p>Podmanivě drnčivý zvuk vhodný pro soustředěnou osobní praxi.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-1" aria-hidden="true"></div>
+            <div class="product-meta">průměr 500 mm</div>
+            <h3>Lotus Flower</h3>
+            <p>Klidný, meditativní a pročišťující zvuk pro ztišení mysli.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-2" aria-hidden="true"></div>
+            <div class="product-meta">průměr 800 mm</div>
+            <h3>Octopus</h3>
+            <p>Transformační, mocný a hluboký tón F v ladění 432 Hz s bohatými alikvoty.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-3" aria-hidden="true"></div>
+            <div class="product-meta">průměr 700 mm</div>
+            <h3>Sun</h3>
+            <p>Živý a svěží zvuk laděný na G# ve 432 Hz, zaměřený na oblast solar plexu.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-4" aria-hidden="true"></div>
+            <div class="product-meta">průměr 600 mm</div>
+            <h3>Tesla</h3>
+            <p>Jemný, elektrizující zvuk, který otevírá a rozšiřuje prostor.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-1" aria-hidden="true"></div>
+            <div class="product-meta">rituální gong</div>
+            <h3>Mandala</h3>
+            <p>
+              Menší rituální nástroj s jemným, plným a zpřítomňujícím zvukem v ladění
+              432 Hz.
+            </p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+          <article class="product-card">
+            <div class="product-image product-image-2" aria-hidden="true"></div>
+            <div class="product-meta">nastavitelná výška</div>
+            <h3>Stojan na GongDrum</h3>
+            <p>Teleskopický, rozložitelný a skladný stojan pro pohodlné hraní i transport.</p>
+            <a href="#contact">Mám zájem</a>
+          </article>
+        </div>
+      </section>
+
+      <section id="about" class="about section">
+        <div class="section-heading">
+          <p class="eyebrow">O GongDrumu</p>
+          <h2>Hudební i spirituální nástroj pro cestu do nitra.</h2>
+        </div>
+        <div class="about-copy">
+          <p>
+            GongDrum propojuje elementy gongu a šamanského bubnu. Vzniká ručně, s důrazem
+            na ladění bossů do specifických frekvencí, jejich vzájemnou harmonii a dlouhý
+            organický dozvuk.
+          </p>
+          <p>
+            Hra je především rytmická. Pravidelný puls může hráče i posluchače přivést
+            do změněného, transového stavu, ve kterém se zvuk stává oporou pro meditaci,
+            osobní praxi i společný rituál.
+          </p>
+        </div>
+      </section>
+
+      <section id="experience" class="experience">
+        <div>
+          <p class="eyebrow">Proč GongDrum</p>
+          <h2>Živá kovová rezonance s tělem bubnu.</h2>
+        </div>
+        <ul>
+          <li>Každý kus vzniká ručně v dílně Gong Drum</li>
+          <li>Spojuje proporce gongu, handpanu a rytmiku šamanského bubnu</li>
+          <li>Ladění respektuje specifické frekvence, harmonii a živý dozvuk</li>
+        </ul>
+      </section>
+
+      <section id="workshops" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Workshopy v dílně</p>
+          <h2>Vyzkoušej hru, nebo si vytvoř vlastní nástroj.</h2>
+        </div>
+        <div class="workshop-grid">
+          <article class="workshop-card">
+            <h3>Workshop hry na GongDrum</h3>
+            <p>
+              Vyzkoušej různé GongDrumy, objev jejich zvukové možnosti a zažij, jak rytmus
+              vede k meditaci i transovému naladění.
+            </p>
+          </article>
+          <article class="workshop-card">
+            <h3>Workshop výroby GongDrumu</h3>
+            <p>
+              Intenzivní pobyt v kovárně, kde pod vedením Vojtěcha vzniká vlastní menší
+              nebo orchestrální GongDrum.
+            </p>
+          </article>
+        </div>
+        <div class="pricing-strip">
+          <span>2 dny v kovárně: GongDrum 50 cm / 6 900 Kč</span>
+          <span>4 dny v kovárně: GongDrum 60-70 cm / 10 900 Kč</span>
+        </div>
+      </section>
+
+      <section class="news section">
+        <div class="section-heading">
+          <p class="eyebrow">Aktuality & festivaly</p>
+          <h2>Krátké zprávy z dílny.</h2>
+        </div>
+        <ul>
+          <li>Meditace s GongDrumy: záměr uzdravení, CVČ Jabloňka v Brně-Medlánkách.</li>
+          <li>Nové termíny workshopů budou postupně oznámeny na sociálních sítích.</li>
+          <li>Ve vývoji je GongDrum laděný do devíti solfeggio frekvencí.</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="contact">
+        <p class="eyebrow">Nezávazná poptávka</p>
+        <h2>Máš zájem o GongDrum nebo workshop?</h2>
+        <p>
+          Napiš, jaký zvuk hledáš, jestli tě zajímá hotový nástroj, podobný kus na míru,
+          nebo nejbližší termín workshopu.
+        </p>
+        <a class="button primary" href="mailto:hello@example.com?subject=GongDrum%20poptavka">
+          Odeslat poptávku
+        </a>
+      </section>
+    </main>
   </body>
 </html>
