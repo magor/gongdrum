@@ -416,8 +416,56 @@ h3 {
 }
 
 @media (max-width: 800px) {
-  .nav,
-  .nav-links,
+  .nav {
+    flex-wrap: wrap;
+  }
+
+  .nav-toggle {
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    justify-content: center;
+    margin: 0;
+    padding: 0.5rem;
+  }
+
+  .nav--open .nav-toggle-bar:nth-child(1) {
+    transform: translateY(0.45rem) rotate(45deg);
+  }
+
+  .nav--open .nav-toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav--open .nav-toggle-bar:nth-child(3) {
+    transform: translateY(-0.45rem) rotate(-45deg);
+  }
+
+  .nav-links {
+    align-items: stretch;
+    background: rgba(255, 248, 237, 0.97);
+    border: 1px solid rgba(58, 33, 23, 0.08);
+    border-radius: 1rem;
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .nav--open .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+  }
+
   .hero-actions {
     align-items: flex-start;
     flex-direction: column;
