@@ -87,7 +87,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <span class="logo-mark"></span>
         Gong Drum
       </a>
-      <div class="nav-links">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Otevřít menu"
+      >
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+      <div id="nav-menu" class="nav-links">
         <a href="#collection">Galerie</a>
         <a href="#about">O nástroji</a>
         <a href="#workshops">Workshopy</a>
