@@ -1,6 +1,7 @@
 import './styles.css';
-import './audio-players';
+import { initAudioPlayers } from './audio-players';
 import { featuredDrums, renderProductCard } from './drums';
+import { initNav } from './nav';
 
 const benefits = [
   'Každý kus vzniká ručně v dílně Gong Drum',
@@ -31,10 +32,26 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main class="site-shell">
     <nav class="nav" aria-label="Hlavní navigace">
       <a class="logo" href="#top" aria-label="Gong Drum home">
-        <span class="logo-mark"></span>
-        Gong Drum
+        <img
+          src="./obrazky/logo_upraveno.png"
+          alt="Gong Drum"
+          class="logo-image"
+          width="861"
+          height="850"
+        />
       </a>
-      <div class="nav-links">
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="nav-menu"
+        aria-label="Otevřít menu"
+      >
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+      <div id="nav-menu" class="nav-links">
         <a href="#collection">Galerie</a>
         <a href="#about">O nástroji</a>
         <a href="#workshops">Workshopy</a>
@@ -44,8 +61,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <section id="top" class="hero">
       <div class="hero-copy">
+        <img
+          src="./obrazky/logo_upraveno.png"
+          alt="Gong Drum logo"
+          class="logo-hero"
+          width="861"
+          height="850"
+        />
+        <p class="slogan">Tvoř vesmír!</p>
         <p class="eyebrow">Ručně kované GongDrumy</p>
-        <h1>Tvoř vesmír hlubokým, živým zvukem.</h1>
+        <h1>Ručně vyráběné GongDrumy pro hluboký, živý zvuk</h1>
         <p class="hero-text">
           Originální nástroje Vojtěcha Hrubého spojují gong a šamanský buben.
           Každý kus je laděn s respektem k proporcím, harmonii a osobitému příběhu.
@@ -155,3 +180,6 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </section>
   </main>
 `;
+
+initNav();
+initAudioPlayers();
