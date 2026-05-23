@@ -77,7 +77,6 @@ a {
 }
 
 .site-shell {
-  overflow: hidden;
   position: relative;
 }
 
@@ -88,12 +87,11 @@ a {
   border-bottom: 1px solid var(--stroke);
   display: flex;
   justify-content: space-between;
-  margin: 0 auto;
-  max-width: 1180px;
-  padding: 1rem 1.5rem;
+  padding: 1rem max(1.5rem, calc((100vw - 1180px) / 2));
   position: sticky;
   top: 0;
-  z-index: 10;
+  width: 100%;
+  z-index: 100;
 }
 
 .logo,
