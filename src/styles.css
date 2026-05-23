@@ -130,6 +130,22 @@ a {
   color: #fff;
 }
 
+
+.nav-toggle {
+  display: none;
+}
+
+.nav-toggle-bar {
+  background: var(--text);
+  border-radius: 2px;
+  display: block;
+  height: 2px;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  width: 1.5rem;
+}
+
 .hero,
 .section,
 .about,
