@@ -3,10 +3,17 @@ name: Deploy site to GitHub Pages
 on:
   push:
     branches: [main]
+    paths:
+      - 'site/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'vite.config.ts'
+      - 'tsconfig.json'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -32,6 +39,28 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Publish built site to repository root
+        run: |
+          cp dist/index.html index.html
+          rm -rf assets
+          cp -r dist/assets assets
+          rm -rf obrazky
+          cp -r dist/obrazky obrazky
+          cp dist/CNAME CNAME
+          cp site/public/.nojekyll .nojekyll
+
+      - name: Commit published site
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets obrazky CNAME .nojekyll
+          if git diff --staged --quiet; then
+            echo "No changes to publish."
+          else
+            git commit -m "chore(pages): publish built site to repository root"
+            git push
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

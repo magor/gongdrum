@@ -43,7 +43,7 @@ body {
 }
 
 body::before {
-  background: url("../obrazky/vesmirna_mlhovina.png") center / cover no-repeat;
+  background: url("/obrazky/vesmirna_mlhovina.png") center / cover no-repeat;
   content: "";
   filter: brightness(0.7) saturate(1.2);
   inset: 0;
