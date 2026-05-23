@@ -1,4 +1,4 @@
-function initNav(): void {
+export function initNav(): void {
   const nav = document.querySelector<HTMLElement>('.nav');
   const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
   const menu = document.querySelector<HTMLElement>('#nav-menu');
@@ -37,5 +37,3 @@ function initNav(): void {
     }
   });
 }
-
-initNav();
