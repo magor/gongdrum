@@ -265,33 +265,87 @@ h3 {
 
 .product-image {
   aspect-ratio: 1.2;
-  background:
-    radial-gradient(circle at 50% 52%, rgba(255, 248, 237, 0.85) 0 9%, transparent 10%),
-    radial-gradient(circle, #cf9247 0 35%, #4c2c1e 36% 57%, transparent 58%),
-    linear-gradient(135deg, #ead4b6, #bf7a3b);
+  background: #ead4b6;
   border-radius: 1rem;
+  display: block;
   margin-bottom: 1rem;
+  object-fit: cover;
+  width: 100%;
 }
 
-.product-image-2 {
-  background:
-    radial-gradient(circle at 50% 52%, rgba(255, 248, 237, 0.75) 0 8%, transparent 9%),
-    radial-gradient(circle, #8f4d32 0 35%, #22130f 36% 58%, transparent 59%),
-    linear-gradient(135deg, #4b2b1e, #d1964f);
+.gong-player {
+  margin-top: 0.85rem;
 }
 
-.product-image-3 {
-  background:
-    radial-gradient(circle at 50% 52%, rgba(255, 248, 237, 0.9) 0 10%, transparent 11%),
-    radial-gradient(circle, #ddb35e 0 32%, #7f4d2d 33% 56%, transparent 57%),
-    linear-gradient(135deg, #f3dfbd, #c07a3e);
+.gong-player audio {
+  display: none;
 }
 
-.product-image-4 {
-  background:
-    radial-gradient(circle at 50% 52%, rgba(255, 248, 237, 0.85) 0 7%, transparent 8%),
-    radial-gradient(circle, #b36539 0 37%, #352019 38% 60%, transparent 61%),
-    linear-gradient(135deg, #e3c39a, #6b3b26);
+.gong-player-button {
+  align-items: center;
+  background: rgba(165, 99, 42, 0.1);
+  border: 1px solid rgba(165, 99, 42, 0.28);
+  border-radius: 999px;
+  color: #3a2117;
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 800;
+  gap: 0.55rem;
+  padding: 0.45rem 0.85rem;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.gong-player-button:hover {
+  background: rgba(165, 99, 42, 0.16);
+  transform: translateY(-1px);
+}
+
+.gong-player-button:focus-visible {
+  outline: 2px solid #a5632a;
+  outline-offset: 2px;
+}
+
+.gong-player-icon {
+  background: currentColor;
+  border-radius: 2px;
+  display: inline-block;
+  height: 0.75rem;
+  position: relative;
+  width: 0.75rem;
+}
+
+.gong-player-icon::before {
+  border-color: transparent transparent transparent currentColor;
+  border-style: solid;
+  border-width: 0.38rem 0 0.38rem 0.62rem;
+  content: "";
+  height: 0;
+  left: 0.14rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+}
+
+.gong-player.is-playing .gong-player-icon::before {
+  border: none;
+  box-shadow:
+    0.2rem 0 0 0 currentColor,
+    -0.2rem 0 0 0 currentColor;
+  height: 0.62rem;
+  left: 0.06rem;
+  top: 0.06rem;
+  transform: none;
+  width: 0.18rem;
+}
+
+.gong-player.is-playing .gong-player-label::after {
+  content: " — přehrává se";
 }
 
 .product-meta {

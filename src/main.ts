@@ -1,59 +1,6 @@
 import './styles.css';
-
-const featuredDrums = [
-  {
-    name: 'Window to the Universe',
-    meta: 'průměr 1000 mm',
-    description:
-      'Hluboký základ inspirovaný solfeggio frekvencí stability 174 Hz a zářivé alikvoty pro nové začátky.',
-  },
-  {
-    name: 'Radegast',
-    meta: 'průměr 1000 mm',
-    description: 'Temný zvuk hlubokého vesmíru laděný do devíti tónů.',
-  },
-  {
-    name: 'Little Thai',
-    meta: 'průměr 480 mm',
-    description: 'Hravý, pozitivní nástroj s jasnou odezvou a přátelským charakterem.',
-  },
-  {
-    name: 'Insight',
-    meta: 'průměr 450 mm',
-    description: 'Podmanivě drnčivý zvuk vhodný pro soustředěnou osobní praxi.',
-  },
-  {
-    name: 'Lotus Flower',
-    meta: 'průměr 500 mm',
-    description: 'Klidný, meditativní a pročišťující zvuk pro ztišení mysli.',
-  },
-  {
-    name: 'Octopus',
-    meta: 'průměr 800 mm',
-    description: 'Transformační, mocný a hluboký tón F v ladění 432 Hz s bohatými alikvoty.',
-  },
-  {
-    name: 'Sun',
-    meta: 'průměr 700 mm',
-    description: 'Živý a svěží zvuk laděný na G# ve 432 Hz, zaměřený na oblast solar plexu.',
-  },
-  {
-    name: 'Tesla',
-    meta: 'průměr 600 mm',
-    description: 'Jemný, elektrizující zvuk, který otevírá a rozšiřuje prostor.',
-  },
-  {
-    name: 'Mandala',
-    meta: 'rituální gong',
-    description:
-      'Menší rituální nástroj s jemným, plným a zpřítomňujícím zvukem v ladění 432 Hz.',
-  },
-  {
-    name: 'Stojan na GongDrum',
-    meta: 'nastavitelná výška',
-    description: 'Teleskopický, rozložitelný a skladný stojan pro pohodlné hraní i transport.',
-  },
-];
+import './audio-players';
+import { featuredDrums, renderProductCard } from './drums';
 
 const benefits = [
   'Každý kus vzniká ručně v dílně Gong Drum',
@@ -82,7 +29,7 @@ const news = [
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main class="site-shell">
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="nav" aria-label="Hlavní navigace">
       <a class="logo" href="#top" aria-label="Gong Drum home">
         <span class="logo-mark"></span>
         Gong Drum
@@ -108,7 +55,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <a class="button secondary" href="#contact">Chci podobný kus</a>
         </div>
       </div>
-      <div class="hero-card" aria-label="Featured gong drum">
+      <div class="hero-card" aria-label="Vybraný GongDrum">
         <div class="gong-illustration">
           <span class="gong-ring ring-one"></span>
           <span class="gong-ring ring-two"></span>
@@ -125,23 +72,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <h2>Každý nástroj má vlastní hlas.</h2>
         <p>
           Ukázkový výběr nástrojů přibližuje velikosti, ladění a nálady GongDrumů.
-          Fotografie a audio ukázky lze doplnit v další verzi webu.
+          U každého kusu si můžeš poslechnout krátkou audio ukázku.
         </p>
       </div>
       <div class="product-grid">
-        ${featuredDrums
-          .map(
-            (drum, index) => `
-              <article class="product-card">
-                <div class="product-image product-image-${(index % 4) + 1}" aria-hidden="true"></div>
-                <div class="product-meta">${drum.meta}</div>
-                <h3>${drum.name}</h3>
-                <p>${drum.description}</p>
-                <a href="#contact">Mám zájem</a>
-              </article>
-            `,
-          )
-          .join('')}
+        ${featuredDrums.map((drum) => renderProductCard(drum)).join('')}
       </div>
     </section>
 
