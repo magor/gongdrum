@@ -370,10 +370,10 @@ h3 {
 
 .gong-player-button {
   align-items: center;
-  background: rgba(165, 99, 42, 0.1);
-  border: 1px solid rgba(165, 99, 42, 0.28);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
   border-radius: 999px;
-  color: #3a2117;
+  color: var(--gold);
   cursor: pointer;
   display: inline-flex;
   font: inherit;
@@ -388,12 +388,12 @@ h3 {
 }
 
 .gong-player-button:hover {
-  background: rgba(165, 99, 42, 0.16);
+  background: rgba(212, 175, 55, 0.2);
   transform: translateY(-1px);
 }
 
 .gong-player-button:focus-visible {
-  outline: 2px solid #a5632a;
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 
