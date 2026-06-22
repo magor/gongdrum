@@ -1,6 +1,7 @@
 import './styles.css';
 import { initAudioPlayers } from './audio-players';
 import { featuredDrums, renderProductCard } from './drums';
+import { initGallery, renderGalleryLightbox } from './gallery';
 import { initNav } from './nav';
 
 const benefits = [
@@ -179,7 +180,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </a>
     </section>
   </main>
+  ${renderGalleryLightbox()}
 `;
 
 initNav();
 initAudioPlayers();
+initGallery();
