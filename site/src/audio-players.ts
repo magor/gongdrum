@@ -1,6 +1,20 @@
 export function initAudioPlayers(): void {
   const players = Array.from(document.querySelectorAll<HTMLElement>('[data-gong-player]'));
 
+  function setProgress(button: HTMLButtonElement, audio: HTMLAudioElement): void {
+    if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
+      button.style.setProperty('--progress', '0%');
+      return;
+    }
+
+    const percent = (audio.currentTime / audio.duration) * 100;
+    button.style.setProperty('--progress', `${percent}%`);
+  }
+
+  function resetProgress(button: HTMLButtonElement): void {
+    button.style.setProperty('--progress', '0%');
+  }
+
   function setPlayingState(player: HTMLElement, playing: boolean) {
     const button = player.querySelector<HTMLButtonElement>('.gong-player-button');
     if (!button) return;
@@ -40,7 +54,11 @@ export function initAudioPlayers(): void {
       setPlayingState(player, false);
     });
 
-    audio.addEventListener('ended', () => setPlayingState(player, false));
+    audio.addEventListener('timeupdate', () => setProgress(button, audio));
+    audio.addEventListener('ended', () => {
+      resetProgress(button);
+      setPlayingState(player, false);
+    });
     audio.addEventListener('pause', () => setPlayingState(player, false));
   });
 }
