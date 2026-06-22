@@ -398,9 +398,8 @@ h3 {
 }
 
 .gong-player-icon {
-  background: currentColor;
-  border-radius: 2px;
   display: inline-block;
+  flex-shrink: 0;
   height: 0.75rem;
   position: relative;
   width: 0.75rem;
@@ -412,23 +411,21 @@ h3 {
   border-width: 0.38rem 0 0.38rem 0.62rem;
   content: "";
   height: 0;
-  left: 0.14rem;
+  left: 50%;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-35%, -50%);
   width: 0;
 }
 
 .gong-player.is-playing .gong-player-icon::before {
+  background: currentColor;
   border: none;
-  box-shadow:
-    0.2rem 0 0 0 currentColor,
-    -0.2rem 0 0 0 currentColor;
+  border-radius: 1px;
+  box-shadow: none;
   height: 0.62rem;
-  left: 0.06rem;
-  top: 0.06rem;
-  transform: none;
-  width: 0.18rem;
+  transform: translate(-50%, -50%);
+  width: 0.62rem;
 }
 
 .gong-player.is-playing .gong-player-label::after {
