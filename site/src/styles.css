@@ -389,15 +389,6 @@ h3 {
   z-index: 1;
 }
 
-.product-sold-label {
-  color: var(--muted);
-  display: inline-block;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  margin-top: 0.5rem;
-  text-transform: uppercase;
-}
-
 .product-image-button {
   background: transparent;
   border: none;

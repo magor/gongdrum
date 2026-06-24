@@ -250,11 +250,7 @@ export function renderProductCard(drum: FeaturedDrum): string {
       <h3>${drum.name}</h3>
       <p>${drum.description}</p>
       ${renderGongPlayer(drum)}
-      ${
-        drum.sold
-          ? '<span class="product-sold-label">Prodáno</span>'
-          : '<a href="#contact">Mám zájem</a>'
-      }
+      <a href="#contact">Mám zájem</a>
     </article>
   `;
 }
