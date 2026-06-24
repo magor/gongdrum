@@ -9,6 +9,7 @@ export type FeaturedDrum = {
   imageAlt: string;
   gallery: string[];
   audio?: string;
+  sold?: boolean;
 };
 
 function galleryPaths(...paths: string[]): string[] {
@@ -34,6 +35,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Window_to_the_Universe/img_5362-2_optimized.jpg',
     ),
     audio: `${ASSET_BASE}/audio/window_to_the_universe.mp3`,
+    sold: true,
   },
   {
     slug: 'radegast',
@@ -51,6 +53,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Radegast/IMG_3049.JPG',
     ),
     audio: `${ASSET_BASE}/audio/Radegast.mp3`,
+    sold: true,
   },
   {
     slug: 'little-thai',
@@ -86,6 +89,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Insight/IMG_3921.JPG',
     ),
     audio: `${ASSET_BASE}/audio/Insight.mp3`,
+    sold: true,
   },
   {
     slug: 'lotus-flower',
@@ -104,6 +108,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Lotus_flower/IMG_4043.JPG',
     ),
     audio: `${ASSET_BASE}/audio/Lotus_flower.mp3`,
+    sold: true,
   },
   {
     slug: 'octopus',
@@ -142,6 +147,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Sun/IMG_5024.JPG',
     ),
     audio: `${ASSET_BASE}/audio/Sun.mp3`,
+    sold: true,
   },
   {
     slug: 'tesla',
@@ -179,6 +185,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Mandala/img_3939_optimized.jpg',
     ),
     audio: `${ASSET_BASE}/audio/Mandala.mp3`,
+    sold: true,
   },
   {
     slug: 'stand',
@@ -194,6 +201,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Stojan/img_5056_optimized.jpg',
       'obrazky/Stojan/img_5057_optimized.jpg',
     ),
+    sold: true,
   },
 ];
 
@@ -219,9 +227,10 @@ export function renderGongPlayer(drum: FeaturedDrum): string {
 export function renderProductCard(drum: FeaturedDrum): string {
   const galleryStart = drum.gallery.indexOf(drum.image);
   const startIndex = galleryStart >= 0 ? galleryStart : 0;
+  const soldLabel = drum.sold ? ' (Prodáno)' : '';
 
   return `
-    <article class="product-card">
+    <article class="product-card${drum.sold ? ' is-sold' : ''}">
       <button
         type="button"
         class="product-image-button"
@@ -230,9 +239,12 @@ export function renderProductCard(drum: FeaturedDrum): string {
         data-gallery-fallback="${drum.image}"
         data-gallery-start="${startIndex}"
         data-gallery-caption="${drum.name}"
-        aria-label="Otevřít galerii: ${drum.name}"
+        aria-label="Otevřít galerii: ${drum.name}${soldLabel}"
       >
-        <img class="product-image" src="${drum.image}" alt="${drum.imageAlt}" loading="lazy" />
+        <span class="product-image-wrap">
+          <img class="product-image" src="${drum.image}" alt="${drum.imageAlt}" loading="lazy" />
+          ${drum.sold ? '<span class="sold-banner" aria-hidden="true">Prodáno</span>' : ''}
+        </span>
       </button>
       <div class="product-meta">${drum.meta}</div>
       <h3>${drum.name}</h3>
