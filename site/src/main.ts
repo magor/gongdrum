@@ -56,6 +56,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <a href="#collection">Galerie</a>
         <a href="#about">O nástroji</a>
         <a href="#workshops">Workshopy</a>
+        <a href="#news">Aktuality</a>
         <a class="nav-cta" href="#contact">Poptávka</a>
       </div>
     </nav>
@@ -158,7 +159,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
     </section>
 
-    <section class="news section">
+    <section id="news" class="news section">
       <div class="section-heading">
         <p class="eyebrow">Aktuality & festivaly</p>
         <h2>Krátké zprávy z dílny.</h2>
