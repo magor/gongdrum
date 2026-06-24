@@ -210,15 +210,23 @@ export function renderGongPlayer(drum: FeaturedDrum): string {
 
   return `
     <div class="gong-player" data-gong-player>
-      <button
-        type="button"
-        class="gong-player-button"
-        aria-pressed="false"
-        aria-label="Přehrát ukázku: ${drum.name}"
-      >
-        <span class="gong-player-icon" aria-hidden="true"></span>
-        <span class="gong-player-label">Poslech ukázky</span>
-      </button>
+      <div class="gong-player-bar">
+        <button
+          type="button"
+          class="gong-player-toggle"
+          aria-pressed="false"
+          aria-label="Přehrát ukázku: ${drum.name}"
+        >
+          <span class="gong-player-icon" aria-hidden="true"></span>
+        </button>
+        <button
+          type="button"
+          class="gong-player-seek"
+          aria-label="Posunout přehrávání ukázky: ${drum.name}"
+        >
+          <span class="gong-player-label">Poslech ukázky</span>
+        </button>
+      </div>
       <audio preload="none" src="${drum.audio}"></audio>
     </div>
   `;
