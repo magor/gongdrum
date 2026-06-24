@@ -20,8 +20,35 @@ const workshops = [
     title: 'Workshop výroby GongDrumu',
     copy:
       'Intenzivní pobyt v kovárně, kde pod vedením Vojtěcha vzniká vlastní menší nebo orchestrální GongDrum.',
+    infoImage: './obrazky/workshop_vyroby_gongdrumu.jpg',
+    infoCaption: 'Workshop výroby GongDrumu',
   },
 ];
+
+function renderWorkshopCard(workshop: (typeof workshops)[number]): string {
+  const infoLink = workshop.infoImage
+    ? `
+        <button
+          type="button"
+          class="workshop-info-link"
+          data-gallery-opener
+          data-gallery-fallback="${workshop.infoImage}"
+          data-gallery-caption="${workshop.infoCaption || workshop.title}"
+          aria-label="Více informací: ${workshop.title}"
+        >
+          Více informací
+        </button>
+      `
+    : '';
+
+  return `
+    <article class="workshop-card">
+      <h3>${workshop.title}</h3>
+      <p>${workshop.copy}</p>
+      ${infoLink}
+    </article>
+  `;
+}
 
 const news = [
   'Meditace s GongDrumy: záměr uzdravení, CVČ Jabloňka v Brně-Medlánkách.',
@@ -141,16 +168,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <h2>Vyzkoušej hru, nebo si vytvoř vlastní nástroj.</h2>
       </div>
       <div class="workshop-grid">
-        ${workshops
-          .map(
-            (workshop) => `
-              <article class="workshop-card">
-                <h3>${workshop.title}</h3>
-                <p>${workshop.copy}</p>
-              </article>
-            `,
-          )
-          .join('')}
+        ${workshops.map((workshop) => renderWorkshopCard(workshop)).join('')}
       </div>
       <div class="pricing-strip">
         <span>2 dny v kovárně: GongDrum 50 cm / 6 900 Kč</span>
