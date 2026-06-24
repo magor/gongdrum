@@ -382,27 +382,29 @@ h3 {
 
 .gong-player {
   margin-top: 0.85rem;
+  width: 100%;
 }
 
 .gong-player audio {
   display: none;
 }
 
-.gong-player-button {
-  align-items: center;
+.gong-player-bar {
+  align-items: stretch;
+  display: flex;
+  gap: 0.45rem;
+  width: 100%;
+}
+
+.gong-player-toggle,
+.gong-player-seek {
   background: rgba(212, 175, 55, 0.12);
   border: 1px solid rgba(212, 175, 55, 0.35);
-  border-radius: 999px;
   color: var(--gold);
   cursor: pointer;
-  display: inline-flex;
   font: inherit;
-  font-size: 0.82rem;
-  font-weight: 800;
-  gap: 0.55rem;
   isolation: isolate;
   overflow: hidden;
-  padding: 0.45rem 0.85rem;
   position: relative;
   transition:
     background 160ms ease,
@@ -410,7 +412,32 @@ h3 {
     transform 160ms ease;
 }
 
-.gong-player-button::before {
+.gong-player-toggle {
+  align-items: center;
+  border-radius: 999px;
+  display: inline-flex;
+  flex: 0 0 2.35rem;
+  height: 2.35rem;
+  justify-content: center;
+  padding: 0;
+  width: 2.35rem;
+}
+
+.gong-player-seek {
+  align-items: center;
+  border-radius: 999px;
+  display: flex;
+  flex: 1 1 auto;
+  font-size: 0.82rem;
+  font-weight: 800;
+  height: 2.35rem;
+  justify-content: center;
+  min-width: 0;
+  padding: 0 1rem;
+  touch-action: none;
+}
+
+.gong-player-seek::before {
   background: rgba(244, 208, 110, 0.38);
   border-radius: inherit;
   content: "";
@@ -424,16 +451,18 @@ h3 {
   z-index: 0;
 }
 
-.gong-player-button:hover {
+.gong-player-toggle:hover,
+.gong-player-seek:hover {
   background: rgba(212, 175, 55, 0.2);
   transform: translateY(-1px);
 }
 
-.gong-player-button:hover::before {
+.gong-player-seek:hover::before {
   background: rgba(255, 224, 150, 0.48);
 }
 
-.gong-player-button:focus-visible {
+.gong-player-toggle:focus-visible,
+.gong-player-seek:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
@@ -470,12 +499,11 @@ h3 {
   width: 0.62rem;
 }
 
-.gong-player.is-playing .gong-player-label::after {
-  content: " — přehrává se";
-}
-
 .gong-player-label {
+  overflow: hidden;
   position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   z-index: 1;
 }
 
