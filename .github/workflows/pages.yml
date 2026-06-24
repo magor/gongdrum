@@ -74,6 +74,114 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for prior Pages deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          repo="${{ github.repository }}"
+          current_sha="${{ github.sha }}"
+          max_attempts=40
+          poll_seconds=30
+
+          is_blocking_status() {
+            case "$1" in
+              deployment_in_progress|syncing_files|finished_file_sync|updating_pages|purging_cdn)
+                return 0
+                ;;
+              *)
+                return 1
+                ;;
+            esac
+          }
+
+          for attempt in $(seq 1 "$max_attempts"); do
+            blocked=false
+
+            while IFS= read -r deploy_sha; do
+              [ -z "$deploy_sha" ] && continue
+              [ "$deploy_sha" = "$current_sha" ] && continue
+
+              status=$(gh api "repos/$repo/pages/deployments/$deploy_sha" --jq -r '.status // empty' 2>/dev/null || true)
+              if [ -n "$status" ] && is_blocking_status "$status"; then
+                echo "Deployment $deploy_sha is still $status"
+                blocked=true
+              fi
+            done < <(gh api "repos/$repo/commits?per_page=8" --jq '.[].sha' 2>/dev/null || true)
+
+            if [ "$blocked" = false ]; then
+              echo "Pages deployment slot is free."
+              exit 0
+            fi
+
+            echo "Waiting for prior Pages deployment... ($attempt/$max_attempts)"
+            sleep "$poll_seconds"
+          done
+
+          echo "Timed out waiting for prior Pages deployment."
+          exit 1
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        continue-on-error: true
+
+      - name: Retry deploy after Pages contention
+        if: steps.deployment.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          repo="${{ github.repository }}"
+          current_sha="${{ github.sha }}"
+          max_attempts=10
+          poll_seconds=30
+
+          is_blocking_status() {
+            case "$1" in
+              deployment_in_progress|syncing_files|finished_file_sync|updating_pages|purging_cdn)
+                return 0
+                ;;
+              *)
+                return 1
+                ;;
+            esac
+          }
+
+          for attempt in $(seq 1 "$max_attempts"); do
+            blocked=false
+
+            while IFS= read -r deploy_sha; do
+              [ -z "$deploy_sha" ] && continue
+              [ "$deploy_sha" = "$current_sha" ] && continue
+
+              status=$(gh api "repos/$repo/pages/deployments/$deploy_sha" --jq -r '.status // empty' 2>/dev/null || true)
+              if [ -n "$status" ] && is_blocking_status "$status"; then
+                echo "Deployment $deploy_sha is still $status"
+                blocked=true
+              fi
+            done < <(gh api "repos/$repo/commits?per_page=8" --jq '.[].sha' 2>/dev/null || true)
+
+            if [ "$blocked" = false ]; then
+              echo "Pages deployment slot is free."
+              exit 0
+            fi
+
+            echo "Retry wait for prior Pages deployment... ($attempt/$max_attempts)"
+            sleep "$poll_seconds"
+          done
+
+          echo "Timed out waiting for prior Pages deployment."
+          exit 1
+
+      - name: Deploy to GitHub Pages (retry)
+        if: steps.deployment.outcome == 'failure'
+        id: deployment_retry
+        uses: actions/deploy-pages@v4
+
+      - name: Verify deployment succeeded
+        run: |
+          if [ "${{ steps.deployment.outcome }}" != "success" ] && [ "${{ steps.deployment_retry.outcome }}" != "success" ]; then
+            echo "Pages deployment failed."
+            exit 1
+          fi
