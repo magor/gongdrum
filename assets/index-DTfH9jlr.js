@@ -63,7 +63,24 @@
         <div class="gd-counter" id="gdCounter">1/1</div>
       </div>
     </div>
-  `}function s(){let e=document.getElementById(`gdLightbox`),t=document.getElementById(`gdSlide`),n=document.getElementById(`gdCaption`),r=document.getElementById(`gdCounter`),i=e?.querySelector(`.gd-prev`),a=e?.querySelector(`.gd-next`);if(!e||!t||!n||!r||!i||!a)return;let o=[],s=0,c=null,l=null,u=()=>{r.textContent=`${s+1}/${o.length||1}`},d=()=>{[s-1,s+1].forEach(e=>{let t=(e+o.length)%o.length,n=new Image;n.src=o[t]})},f=e=>{o.length&&(s=(e+o.length)%o.length,t.src=o[s],t.alt=n.textContent||``,u(),d())},p=()=>{e.classList.remove(`open`),e.setAttribute(`aria-hidden`,`true`),document.body.style.overflow=``,t.removeAttribute(`src`),o=[],c?.focus()},m=(t,r,i)=>{t.length&&(c=document.activeElement,o=t,n.textContent=i,e.classList.add(`open`),e.setAttribute(`aria-hidden`,`false`),document.body.style.overflow=`hidden`,f(r),a.focus())};i.addEventListener(`click`,()=>f(s-1)),a.addEventListener(`click`,()=>f(s+1)),e.querySelectorAll(`[data-close]`).forEach(e=>{e.addEventListener(`click`,p)}),document.addEventListener(`keydown`,t=>{e.classList.contains(`open`)&&(t.key===`Escape`&&p(),t.key===`ArrowLeft`&&f(s-1),t.key===`ArrowRight`&&f(s+1))}),t.addEventListener(`touchstart`,e=>{l=e.changedTouches[0].clientX},{passive:!0}),t.addEventListener(`touchend`,e=>{if(l===null)return;let t=e.changedTouches[0].clientX-l;Math.abs(t)>40&&f(t>0?s-1:s+1),l=null},{passive:!0}),document.querySelectorAll(`[data-gallery-opener]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=(e.getAttribute(`data-gallery`)||``).split(`,`).map(e=>e.trim()).filter(Boolean),n=e.getAttribute(`data-gallery-fallback`),r=t.length?t:n?[n]:[],i=Number.parseInt(e.getAttribute(`data-gallery-start`)||`0`,10),a=e.getAttribute(`data-gallery-caption`)||``;m(r,Number.isNaN(i)?0:i,a)})})}function c(){let e=document.querySelector(`.nav`),t=document.querySelector(`.nav-toggle`),n=document.querySelector(`#nav-menu`);if(!e||!t||!n)return;let r=()=>{e.classList.remove(`nav--open`),t.setAttribute(`aria-expanded`,`false`),t.setAttribute(`aria-label`,`Otevřít menu`)},i=()=>{e.classList.add(`nav--open`),t.setAttribute(`aria-expanded`,`true`),t.setAttribute(`aria-label`,`Zavřít menu`)};t.addEventListener(`click`,()=>{e.classList.contains(`nav--open`)?r():i()}),n.querySelectorAll(`a`).forEach(e=>{e.addEventListener(`click`,r)}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&r()})}var l=[`Každý kus vzniká ručně v dílně Gong Drum`,`Spojuje proporce gongu, handpanu a rytmiku šamanského bubnu`,`Ladění respektuje specifické frekvence, harmonii a živý dozvuk`],u=[{title:`Workshop hry na GongDrum`,copy:`Vyzkoušej různé GongDrumy, objev jejich zvukové možnosti a zažij, jak rytmus vede k meditaci i transovému naladění.`},{title:`Workshop výroby GongDrumu`,copy:`Intenzivní pobyt v kovárně, kde pod vedením Vojtěcha vzniká vlastní menší nebo orchestrální GongDrum.`}],d=[`Meditace s GongDrumy: záměr uzdravení, CVČ Jabloňka v Brně-Medlánkách.`,`Nové termíny workshopů budou postupně oznámeny na sociálních sítích.`,`Ve vývoji je GongDrum laděný do devíti solfeggio frekvencí.`];document.querySelector(`#app`).innerHTML=`
+  `}function s(){let e=document.getElementById(`gdLightbox`),t=document.getElementById(`gdSlide`),n=document.getElementById(`gdCaption`),r=document.getElementById(`gdCounter`),i=e?.querySelector(`.gd-prev`),a=e?.querySelector(`.gd-next`);if(!e||!t||!n||!r||!i||!a)return;let o=[],s=0,c=null,l=null,u=()=>{r.textContent=`${s+1}/${o.length||1}`},d=()=>{[s-1,s+1].forEach(e=>{let t=(e+o.length)%o.length,n=new Image;n.src=o[t]})},f=e=>{o.length&&(s=(e+o.length)%o.length,t.src=o[s],t.alt=n.textContent||``,u(),d())},p=()=>{e.classList.remove(`open`),e.setAttribute(`aria-hidden`,`true`),document.body.style.overflow=``,t.removeAttribute(`src`),o=[],c?.focus()},m=(t,r,i)=>{t.length&&(c=document.activeElement,o=t,n.textContent=i,e.classList.add(`open`),e.setAttribute(`aria-hidden`,`false`),document.body.style.overflow=`hidden`,f(r),a.focus())};i.addEventListener(`click`,()=>f(s-1)),a.addEventListener(`click`,()=>f(s+1)),e.querySelectorAll(`[data-close]`).forEach(e=>{e.addEventListener(`click`,p)}),document.addEventListener(`keydown`,t=>{e.classList.contains(`open`)&&(t.key===`Escape`&&p(),t.key===`ArrowLeft`&&f(s-1),t.key===`ArrowRight`&&f(s+1))}),t.addEventListener(`touchstart`,e=>{l=e.changedTouches[0].clientX},{passive:!0}),t.addEventListener(`touchend`,e=>{if(l===null)return;let t=e.changedTouches[0].clientX-l;Math.abs(t)>40&&f(t>0?s-1:s+1),l=null},{passive:!0}),document.querySelectorAll(`[data-gallery-opener]`).forEach(e=>{e.addEventListener(`click`,()=>{let t=(e.getAttribute(`data-gallery`)||``).split(`,`).map(e=>e.trim()).filter(Boolean),n=e.getAttribute(`data-gallery-fallback`),r=t.length?t:n?[n]:[],i=Number.parseInt(e.getAttribute(`data-gallery-start`)||`0`,10),a=e.getAttribute(`data-gallery-caption`)||``;m(r,Number.isNaN(i)?0:i,a)})})}function c(){let e=document.querySelector(`.nav`),t=document.querySelector(`.nav-toggle`),n=document.querySelector(`#nav-menu`);if(!e||!t||!n)return;let r=()=>{e.classList.remove(`nav--open`),t.setAttribute(`aria-expanded`,`false`),t.setAttribute(`aria-label`,`Otevřít menu`)},i=()=>{e.classList.add(`nav--open`),t.setAttribute(`aria-expanded`,`true`),t.setAttribute(`aria-label`,`Zavřít menu`)};t.addEventListener(`click`,()=>{e.classList.contains(`nav--open`)?r():i()}),n.querySelectorAll(`a`).forEach(e=>{e.addEventListener(`click`,r)}),document.addEventListener(`keydown`,e=>{e.key===`Escape`&&r()})}var l=[`Každý kus vzniká ručně v dílně Gong Drum`,`Spojuje proporce gongu, handpanu a rytmiku šamanského bubnu`,`Ladění respektuje specifické frekvence, harmonii a živý dozvuk`],u=[{title:`Workshop hry na GongDrum`,copy:`Vyzkoušej různé GongDrumy, objev jejich zvukové možnosti a zažij, jak rytmus vede k meditaci i transovému naladění.`},{title:`Workshop výroby GongDrumu`,copy:`Intenzivní pobyt v kovárně, kde pod vedením Vojtěcha vzniká vlastní menší nebo orchestrální GongDrum.`,infoImage:`./obrazky/workshop_vyroby_gongdrumu.jpg`,infoCaption:`Workshop výroby GongDrumu`}];function d(e){let t=e.infoImage?`
+        <button
+          type="button"
+          class="workshop-info-link"
+          data-gallery-opener
+          data-gallery-fallback="${e.infoImage}"
+          data-gallery-caption="${e.infoCaption||e.title}"
+          aria-label="Více informací: ${e.title}"
+        >
+          Více informací
+        </button>
+      `:``;return`
+    <article class="workshop-card">
+      <h3>${e.title}</h3>
+      <p>${e.copy}</p>
+      ${t}
+    </article>
+  `}var f=[`Meditace s GongDrumy: záměr uzdravení, CVČ Jabloňka v Brně-Medlánkách.`,`Nové termíny workshopů budou postupně oznámeny na sociálních sítích.`,`Ve vývoji je GongDrum laděný do devíti solfeggio frekvencí.`];document.querySelector(`#app`).innerHTML=`
   <main class="site-shell">
     <nav class="nav" aria-label="Hlavní navigace">
       <a class="logo" href="#top" aria-label="Gong Drum home">
@@ -176,12 +193,7 @@
         <h2>Vyzkoušej hru, nebo si vytvoř vlastní nástroj.</h2>
       </div>
       <div class="workshop-grid">
-        ${u.map(e=>`
-              <article class="workshop-card">
-                <h3>${e.title}</h3>
-                <p>${e.copy}</p>
-              </article>
-            `).join(``)}
+        ${u.map(e=>d(e)).join(``)}
       </div>
       <div class="pricing-strip">
         <span>2 dny v kovárně: GongDrum 50 cm / 6 900 Kč</span>
@@ -195,7 +207,7 @@
         <h2>Krátké zprávy z dílny.</h2>
       </div>
       <ul>
-        ${d.map(e=>`<li>${e}</li>`).join(``)}
+        ${f.map(e=>`<li>${e}</li>`).join(``)}
       </ul>
     </section>
 
