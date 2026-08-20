@@ -24,6 +24,7 @@ const SOLD_DRUM_SLUGS = new Set([
   'sun',
   'mandala',
   'stand',
+  'nova-genesis',
 ]);
 
 const drumCatalog: DrumDef[] = [
@@ -82,6 +83,13 @@ const drumCatalog: DrumDef[] = [
     meta: 'rituální gong',
     description:
       'Menší rituální nástroj s jemným, plným a zpřítomňujícím zvukem v ladění 432 Hz.',
+  },
+  {
+    slug: 'nova-genesis',
+    name: 'Nova Genesis',
+    meta: 'Nova Genesis',
+    description:
+      'TODO popis',
   },
   {
     slug: 'stand',
