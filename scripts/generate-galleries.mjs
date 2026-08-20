@@ -10,6 +10,34 @@ const outFile = path.join(root, 'site/src/generated/galleries.ts');
 
 const IMAGE_RE = /\.(jpe?g|png|webp|gif)$/i;
 
+function syncLegacyAssets() {
+  const rootObrazky = path.join(root, 'obrazky');
+  const rootAudio = path.join(root, 'audio');
+
+  if (fs.existsSync(rootObrazky)) {
+    for (const entry of fs.readdirSync(rootObrazky, { withFileTypes: true })) {
+      if (!entry.isDirectory()) continue;
+
+      const srcDir = path.join(rootObrazky, entry.name);
+      const destDir = path.join(publicObrazky, entry.name);
+      fs.mkdirSync(destDir, { recursive: true });
+
+      for (const file of fs.readdirSync(srcDir)) {
+        if (file.startsWith('.')) continue;
+        fs.copyFileSync(path.join(srcDir, file), path.join(destDir, file));
+      }
+    }
+  }
+
+  if (fs.existsSync(rootAudio)) {
+    fs.mkdirSync(publicAudio, { recursive: true });
+    for (const file of fs.readdirSync(rootAudio)) {
+      if (!file.endsWith('.mp3')) continue;
+      fs.copyFileSync(path.join(rootAudio, file), path.join(publicAudio, file));
+    }
+  }
+}
+
 function listImages(slug) {
   const dir = path.join(publicObrazky, slug);
   if (!fs.existsSync(dir)) return [];
@@ -25,6 +53,8 @@ function audioPath(slug) {
   const file = path.join(publicAudio, `${slug}.mp3`);
   return fs.existsSync(file) ? `./audio/${slug}.mp3` : undefined;
 }
+
+syncLegacyAssets();
 
 const slugs = fs
   .readdirSync(publicObrazky, { withFileTypes: true })
