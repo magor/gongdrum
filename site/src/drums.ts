@@ -23,8 +23,8 @@ const SOLD_DRUM_SLUGS = new Set([
   'lotus-flower',
   'sun',
   'mandala',
-  'stand',
   'nova-genesis',
+  'little-thai',
 ]);
 
 const drumCatalog: DrumDef[] = [
