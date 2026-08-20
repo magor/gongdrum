@@ -27,6 +27,7 @@ const SOLD_DRUM_SLUGS = new Set([
   'sun',
   'mandala',
   'stand',
+  'nova-genesis',
 ]);
 
 const drumCatalog: Omit<FeaturedDrum, 'sold'>[] = [
@@ -193,6 +194,25 @@ const drumCatalog: Omit<FeaturedDrum, 'sold'>[] = [
       'obrazky/Mandala/img_3939_optimized.jpg',
     ),
     audio: asset('audio/Mandala.mp3'),
+  },
+  {
+    slug: 'nova-genesis',
+    name: 'Nova Genesis',
+    meta: 'Nova Genesis',
+    description:
+      'TODO popis',
+    image: asset('obrazky/Nova_Genesis/DCS_0858.JPG'),
+    imageAlt: 'GongDrum Mandala',
+    gallery: galleryPaths(
+      'obrazky/Nova_Genesis/DCS_0858.JPG',
+      'obrazky/Nova_Genesis/DCS_0860.JPG',
+      'obrazky/Nova_Genesis/DCS_0862.JPG',
+      'obrazky/Nova_Genesis/DCS_0864.JPG',
+      'obrazky/Nova_Genesis/DCS_0870.JPG',
+      'obrazky/Nova_Genesis/DCS_0872.JPG',
+      'obrazky/Nova_Genesis/DCS_0962.JPG',
+    ),
+    audio: asset('audio/Nova_Genesis.mp3'),
   },
   {
     slug: 'stand',
