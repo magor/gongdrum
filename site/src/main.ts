@@ -115,8 +115,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
           <span class="gong-ring ring-two"></span>
           <span class="gong-ring ring-three"></span>
         </div>
-        <p>Vyrobeno v dílně Gong Drum</p>
-        <strong>Nástroj pro meditaci, rituál i společné hraní</strong>
+        <strong>Nástroj pro songhealing, meditaci, rituál i společné hraní</strong>
       </div>
     </section>
 
@@ -172,8 +171,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         ${workshops.map((workshop) => renderWorkshopCard(workshop)).join('')}
       </div>
       <div class="pricing-strip">
-        <span>2 dny v kovárně: GongDrum 50 cm / 6 900 Kč</span>
-        <span>4 dny v kovárně: GongDrum 60-70 cm / 10 900 Kč</span>
+        <span>2 dny v kovárně: GongDrum 50-60 cm / 9 900 Kč</span>
+        <span>4 dny v kovárně: GongDrum 70-80 cm / 14 900 Kč</span>
       </div>
     </section>
 
