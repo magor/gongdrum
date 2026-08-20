@@ -18,7 +18,18 @@ function galleryPaths(...paths: string[]): string[] {
   return paths.map(asset);
 }
 
-export const featuredDrums: FeaturedDrum[] = [
+/** Add a drum slug here when it sells. Remove to mark available again. */
+const SOLD_DRUM_SLUGS = new Set([
+  'window-to-the-universe',
+  'radegast',
+  'insight',
+  'lotus-flower',
+  'sun',
+  'mandala',
+  'stand',
+]);
+
+const drumCatalog: Omit<FeaturedDrum, 'sold'>[] = [
   {
     slug: 'window-to-the-universe',
     name: 'Window to the Universe',
@@ -37,7 +48,6 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Window_to_the_Universe/img_5362-2_optimized.jpg',
     ),
     audio: asset('audio/window_to_the_universe.mp3'),
-    sold: true,
   },
   {
     slug: 'radegast',
@@ -55,7 +65,6 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Radegast/IMG_3049.JPG',
     ),
     audio: asset('audio/Radegast.mp3'),
-    sold: true,
   },
   {
     slug: 'little-thai',
@@ -91,7 +100,6 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Insight/IMG_3921.JPG',
     ),
     audio: asset('audio/Insight.mp3'),
-    sold: true,
   },
   {
     slug: 'lotus-flower',
@@ -110,7 +118,6 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Lotus_flower/IMG_4043.JPG',
     ),
     audio: asset('audio/Lotus_flower.mp3'),
-    sold: true,
   },
   {
     slug: 'octopus',
@@ -149,7 +156,6 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Sun/IMG_5024.JPG',
     ),
     audio: asset('audio/Sun.mp3'),
-    sold: true,
   },
   {
     slug: 'tesla',
@@ -187,7 +193,6 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Mandala/img_3939_optimized.jpg',
     ),
     audio: asset('audio/Mandala.mp3'),
-    sold: true,
   },
   {
     slug: 'stand',
@@ -203,9 +208,15 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Stojan/img_5056_optimized.jpg',
       'obrazky/Stojan/img_5057_optimized.jpg',
     ),
-    sold: true,
   },
 ];
+
+export const featuredDrums: FeaturedDrum[] = drumCatalog
+  .map((drum) => ({
+    ...drum,
+    sold: SOLD_DRUM_SLUGS.has(drum.slug),
+  }))
+  .sort((a, b) => Number(a.sold) - Number(b.sold));
 
 export function renderGongPlayer(drum: FeaturedDrum): string {
   if (!drum.audio) return '';
@@ -238,6 +249,7 @@ export function renderProductCard(drum: FeaturedDrum): string {
   const galleryStart = drum.gallery.indexOf(drum.image);
   const startIndex = galleryStart >= 0 ? galleryStart : 0;
   const soldLabel = drum.sold ? ' (Prodáno)' : '';
+  const ctaLabel = drum.sold ? 'Chci podobný kus' : 'Mám zájem';
 
   return `
     <article class="product-card${drum.sold ? ' is-sold' : ''}">
@@ -260,7 +272,7 @@ export function renderProductCard(drum: FeaturedDrum): string {
       <h3>${drum.name}</h3>
       <p>${drum.description}</p>
       ${renderGongPlayer(drum)}
-      <a href="#contact">Mám zájem</a>
+      <a href="#contact">${ctaLabel}</a>
     </article>
   `;
 }
