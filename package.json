@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "generate:galleries": "node scripts/generate-galleries.mjs",
+    "dev": "npm run generate:galleries && vite",
+    "build": "npm run generate:galleries && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {

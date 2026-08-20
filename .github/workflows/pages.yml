@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'site/**'
+      - 'scripts/**'
       - 'package.json'
       - 'package-lock.json'
       - 'vite.config.ts'
