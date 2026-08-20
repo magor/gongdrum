@@ -92,6 +92,20 @@ const drumCatalog: DrumDef[] = [
       'TODO popis',
   },
   {
+    slug: 'nobody',
+    name: 'Nobody',
+    meta: 'Nobody',
+    description:
+      'TODO popis',
+  },
+  {
+    slug: 'om-spiral',
+    name: 'Om Spiral',
+    meta: 'Om Spiral',
+    description:
+      'TODO popis',
+  },
+  {
     slug: 'stand',
     name: 'Stojan na GongDrum',
     meta: 'nastavitelná výška',
