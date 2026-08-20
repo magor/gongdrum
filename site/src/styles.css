@@ -367,6 +367,18 @@ h3 {
   width: 100%;
 }
 
+.product-image-placeholder {
+  background: linear-gradient(135deg, #d4c4a8 0%, #ead4b6 50%, #c9b896 100%);
+}
+
+.product-image-button.is-disabled {
+  cursor: default;
+}
+
+.product-image-button.is-disabled:hover .product-image {
+  filter: none;
+}
+
 .product-card.is-sold .product-image {
   filter: grayscale(0.2) brightness(0.82);
 }
