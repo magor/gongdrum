@@ -1,4 +1,6 @@
-export const ASSET_BASE = 'https://hrubyvojtech.cz';
+function asset(path: string): string {
+  return `./${path}`;
+}
 
 export type FeaturedDrum = {
   slug: string;
@@ -13,7 +15,7 @@ export type FeaturedDrum = {
 };
 
 function galleryPaths(...paths: string[]): string[] {
-  return paths.map((path) => `${ASSET_BASE}/${path}`);
+  return paths.map(asset);
 }
 
 export const featuredDrums: FeaturedDrum[] = [
@@ -23,7 +25,7 @@ export const featuredDrums: FeaturedDrum[] = [
     meta: 'průměr 1000 mm',
     description:
       'Hluboký základ inspirovaný solfeggio frekvencí stability 174 Hz a zářivé alikvoty pro nové začátky.',
-    image: `${ASSET_BASE}/obrazky/Window_to_the_Universe/img_5357-2_optimized.jpg`,
+    image: asset('obrazky/Window_to_the_Universe/img_5357-2_optimized.jpg'),
     imageAlt: 'GongDrum Window to the Universe',
     gallery: galleryPaths(
       'obrazky/Window_to_the_Universe/img_5347-2_optimized.jpg',
@@ -34,7 +36,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Window_to_the_Universe/img_5360-2_optimized.jpg',
       'obrazky/Window_to_the_Universe/img_5362-2_optimized.jpg',
     ),
-    audio: `${ASSET_BASE}/audio/window_to_the_universe.mp3`,
+    audio: asset('audio/window_to_the_universe.mp3'),
     sold: true,
   },
   {
@@ -42,7 +44,7 @@ export const featuredDrums: FeaturedDrum[] = [
     name: 'Radegast',
     meta: 'průměr 1000 mm',
     description: 'Temný zvuk hlubokého vesmíru laděný do devíti tónů.',
-    image: `${ASSET_BASE}/obrazky/Radegast/IMG_3054.JPG`,
+    image: asset('obrazky/Radegast/IMG_3054.JPG'),
     imageAlt: 'GongDrum Radegast',
     gallery: galleryPaths(
       'obrazky/Radegast/IMG_3060.JPG',
@@ -52,7 +54,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Radegast/IMG_3050.JPG',
       'obrazky/Radegast/IMG_3049.JPG',
     ),
-    audio: `${ASSET_BASE}/audio/Radegast.mp3`,
+    audio: asset('audio/Radegast.mp3'),
     sold: true,
   },
   {
@@ -60,7 +62,7 @@ export const featuredDrums: FeaturedDrum[] = [
     name: 'Little Thai',
     meta: 'průměr 480 mm',
     description: 'Hravý, pozitivní nástroj s jasnou odezvou a přátelským charakterem.',
-    image: `${ASSET_BASE}/obrazky/Little_Thai/IMG_3982.JPG`,
+    image: asset('obrazky/Little_Thai/IMG_3982.JPG'),
     imageAlt: 'GongDrum Little Thai',
     gallery: galleryPaths(
       'obrazky/Little_Thai/IMG_3982.JPG',
@@ -70,14 +72,14 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Little_Thai/IMG_3992.JPG',
       'obrazky/Little_Thai/IMG_3969.JPG',
     ),
-    audio: `${ASSET_BASE}/audio/Little_Thai.mp3`,
+    audio: asset('audio/Little_Thai.mp3'),
   },
   {
     slug: 'insight',
     name: 'Insight',
     meta: 'průměr 450 mm',
     description: 'Podmanivě drnčivý zvuk vhodný pro soustředěnou osobní praxi.',
-    image: `${ASSET_BASE}/obrazky/Insight/IMG_3882.JPG`,
+    image: asset('obrazky/Insight/IMG_3882.JPG'),
     imageAlt: 'GongDrum Insight',
     gallery: galleryPaths(
       'obrazky/Insight/IMG_3882.JPG',
@@ -88,7 +90,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Insight/IMG_3910.JPG',
       'obrazky/Insight/IMG_3921.JPG',
     ),
-    audio: `${ASSET_BASE}/audio/Insight.mp3`,
+    audio: asset('audio/Insight.mp3'),
     sold: true,
   },
   {
@@ -96,7 +98,7 @@ export const featuredDrums: FeaturedDrum[] = [
     name: 'Lotus Flower',
     meta: 'průměr 500 mm',
     description: 'Klidný, meditativní a pročišťující zvuk pro ztišení mysli.',
-    image: `${ASSET_BASE}/obrazky/Lotus_flower/IMG_4007.JPG`,
+    image: asset('obrazky/Lotus_flower/IMG_4007.JPG'),
     imageAlt: 'GongDrum Lotus Flower',
     gallery: galleryPaths(
       'obrazky/Lotus_flower/IMG_4007.JPG',
@@ -107,7 +109,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Lotus_flower/IMG_4037.JPG',
       'obrazky/Lotus_flower/IMG_4043.JPG',
     ),
-    audio: `${ASSET_BASE}/audio/Lotus_flower.mp3`,
+    audio: asset('audio/Lotus_flower.mp3'),
     sold: true,
   },
   {
@@ -115,7 +117,7 @@ export const featuredDrums: FeaturedDrum[] = [
     name: 'Octopus',
     meta: 'průměr 800 mm',
     description: 'Transformační, mocný a hluboký tón F v ladění 432 Hz s bohatými alikvoty.',
-    image: `${ASSET_BASE}/obrazky/Octopus/IMG_4983.JPG`,
+    image: asset('obrazky/Octopus/IMG_4983.JPG'),
     imageAlt: 'GongDrum Octopus',
     gallery: galleryPaths(
       'obrazky/Octopus/IMG_4983.JPG',
@@ -127,14 +129,14 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Octopus/IMG_4998.JPG',
       'obrazky/Octopus/IMG_5006.JPG',
     ),
-    audio: `${ASSET_BASE}/audio/Octopus_long.mp3`,
+    audio: asset('audio/Octopus_long.mp3'),
   },
   {
     slug: 'sun',
     name: 'Sun',
     meta: 'průměr 700 mm',
     description: 'Živý a svěží zvuk laděný na G# ve 432 Hz, zaměřený na oblast solar plexu.',
-    image: `${ASSET_BASE}/obrazky/Sun/IMG_5012.JPG`,
+    image: asset('obrazky/Sun/IMG_5012.JPG'),
     imageAlt: 'GongDrum Sun',
     gallery: galleryPaths(
       'obrazky/Sun/IMG_5012.JPG',
@@ -146,7 +148,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Sun/IMG_5022.JPG',
       'obrazky/Sun/IMG_5024.JPG',
     ),
-    audio: `${ASSET_BASE}/audio/Sun.mp3`,
+    audio: asset('audio/Sun.mp3'),
     sold: true,
   },
   {
@@ -154,7 +156,7 @@ export const featuredDrums: FeaturedDrum[] = [
     name: 'Tesla',
     meta: 'průměr 600 mm',
     description: 'Jemný, elektrizující zvuk, který otevírá a rozšiřuje prostor.',
-    image: `${ASSET_BASE}/obrazky/Tesla/IMG_5030.JPG`,
+    image: asset('obrazky/Tesla/IMG_5030.JPG'),
     imageAlt: 'GongDrum Tesla',
     gallery: galleryPaths(
       'obrazky/Tesla/IMG_5030.JPG',
@@ -165,7 +167,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Tesla/IMG_5049.JPG',
       'obrazky/Tesla/IMG_5050.JPG',
     ),
-    audio: `${ASSET_BASE}/audio/Tesla.mp3`,
+    audio: asset('audio/Tesla.mp3'),
   },
   {
     slug: 'mandala',
@@ -173,7 +175,7 @@ export const featuredDrums: FeaturedDrum[] = [
     meta: 'rituální gong',
     description:
       'Menší rituální nástroj s jemným, plným a zpřítomňujícím zvukem v ladění 432 Hz.',
-    image: `${ASSET_BASE}/obrazky/Mandala/img_3939_optimized.jpg`,
+    image: asset('obrazky/Mandala/img_3939_optimized.jpg'),
     imageAlt: 'GongDrum Mandala',
     gallery: galleryPaths(
       'obrazky/Mandala/img_3853_optimized.jpg',
@@ -184,7 +186,7 @@ export const featuredDrums: FeaturedDrum[] = [
       'obrazky/Mandala/img_3936_optimized.jpg',
       'obrazky/Mandala/img_3939_optimized.jpg',
     ),
-    audio: `${ASSET_BASE}/audio/Mandala.mp3`,
+    audio: asset('audio/Mandala.mp3'),
     sold: true,
   },
   {
@@ -192,7 +194,7 @@ export const featuredDrums: FeaturedDrum[] = [
     name: 'Stojan na GongDrum',
     meta: 'nastavitelná výška',
     description: 'Teleskopický, rozložitelný a skladný stojan pro pohodlné hraní i transport.',
-    image: `${ASSET_BASE}/obrazky/Stojan/img_5053_optimized.jpg`,
+    image: asset('obrazky/Stojan/img_5053_optimized.jpg'),
     imageAlt: 'Stojan na GongDrum',
     gallery: galleryPaths(
       'obrazky/Stojan/img_5053_optimized.jpg',
