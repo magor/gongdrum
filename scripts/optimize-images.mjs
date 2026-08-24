@@ -15,7 +15,6 @@ const VARIANTS = {
   card: { maxWidth: 480, jpegQuality: 82, webpQuality: 80 },
   display: { maxWidth: 1280, jpegQuality: 85, webpQuality: 82 },
 };
-const PLACEHOLDER_WIDTH = 24;
 
 function hashFile(filePath) {
   const data = fs.readFileSync(filePath);
@@ -61,16 +60,6 @@ function listSourceImages(dir, files = []) {
   return files;
 }
 
-async function createPlaceholder(buffer) {
-  const { data, info } = await sharp(buffer)
-    .rotate()
-    .resize({ width: PLACEHOLDER_WIDTH, withoutEnlargement: true })
-    .jpeg({ quality: 40, progressive: true })
-    .toBuffer({ resolveWithObject: true });
-
-  return `data:image/jpeg;base64,${data.toString('base64')}`;
-}
-
 async function writeVariant(pipeline, outPath, format, options) {
   ensureDir(path.dirname(outPath));
 
@@ -99,7 +88,6 @@ async function optimizeImage(sourcePath, previousEntry) {
 
   const input = sharp(sourcePath, { failOn: 'none' }).rotate();
   const metadata = await input.metadata();
-  const placeholder = await createPlaceholder(fs.readFileSync(sourcePath));
   const baseName = outputBaseName(relativePath);
   const variants = {};
 
@@ -144,7 +132,6 @@ async function optimizeImage(sourcePath, previousEntry) {
     sourceMtimeMs: sourceStat.mtimeMs,
     width: metadata.width ?? 0,
     height: metadata.height ?? 0,
-    placeholder,
     variants,
   };
 }

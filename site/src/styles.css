@@ -1,3 +1,5 @@
+@import './generated/background.css';
+
 :root {
   --bg: #0b0b0e;
   --panel: rgba(17, 18, 26, 0.72);
@@ -43,7 +45,9 @@ body {
 }
 
 body::before {
-  background: var(--bg-image, url("./obrazky/vesmirna_mlhovina.png")) center / cover no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   content: "";
   filter: brightness(0.7) saturate(1.2);
   inset: 0;
@@ -372,23 +376,10 @@ h3 {
   position: relative;
 }
 
-.product-image-wrap picture,
+.product-image-wrap .product-image,
 .product-image {
   aspect-ratio: 1.2;
   background: #ead4b6;
-  border-radius: 1rem;
-  display: block;
-  margin-bottom: 0;
-  object-fit: cover;
-  width: 100%;
-}
-
-.product-image-wrap picture img {
-  aspect-ratio: 1.2;
-  background-color: #ead4b6;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 1rem;
   display: block;
   margin-bottom: 0;
@@ -404,8 +395,7 @@ h3 {
   cursor: default;
 }
 
-.product-image-button.is-disabled:hover .product-image,
-.product-image-button.is-disabled:hover picture img {
+.product-image-button.is-disabled:hover .product-image {
   filter: none;
 }
 
@@ -447,13 +437,11 @@ h3 {
   outline-offset: 3px;
 }
 
-.product-image-button:hover .product-image,
-.product-image-button:hover picture img {
+.product-image-button:hover .product-image {
   filter: brightness(1.05);
 }
 
-.product-card.is-sold .product-image-button:hover .product-image,
-.product-card.is-sold .product-image-button:hover picture img {
+.product-card.is-sold .product-image-button:hover .product-image {
   filter: grayscale(0.2) brightness(0.88);
 }
 
@@ -829,9 +817,6 @@ h3 {
 }
 
 .gd-stage img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
   display: block;
