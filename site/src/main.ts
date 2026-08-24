@@ -77,14 +77,16 @@ const heroLogoMarkup = renderPicture(sharedImages.logo_upraveno, 'display', 'Gon
 });
 
 const backgroundImage = sharedImages.vesmirna_mlhovina;
-document.documentElement.style.setProperty(
-  '--bg-image-webp',
-  `url("${backgroundImage.variants.display.webp}")`,
-);
-document.documentElement.style.setProperty(
-  '--bg-image-fallback',
-  `url("${backgroundImage.variants.display.jpeg}")`,
-);
+const backgroundUrl = (() => {
+  const probe = document.createElement('canvas');
+  const supportsWebp =
+    probe.getContext?.('2d') &&
+    probe.toDataURL('image/webp').startsWith('data:image/webp');
+  return supportsWebp
+    ? backgroundImage.variants.display.webp
+    : backgroundImage.variants.display.jpeg;
+})();
+document.documentElement.style.setProperty('--bg-image', `url("${backgroundUrl}")`);
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main class="site-shell">

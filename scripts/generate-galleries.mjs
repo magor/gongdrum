@@ -56,7 +56,10 @@ function listSourceImages(slug) {
 }
 
 function toOptimizedImage(relativePath, manifest) {
-  const entry = manifest[relativePath];
+  const manifestKey = relativePath.startsWith('obrazky/')
+    ? relativePath.slice('obrazky/'.length)
+    : relativePath;
+  const entry = manifest[manifestKey];
   if (!entry) {
     const fallback = `./${relativePath}`;
     return {
