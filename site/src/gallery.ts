@@ -1,5 +1,5 @@
 import type { OptimizedImage } from './images';
-import { renderPicture } from './images';
+import { renderProgressiveImage } from './images';
 
 export function renderGalleryLightbox(): string {
   return `
@@ -39,7 +39,6 @@ function parseGalleryValue(value: string): OptimizedImage | null {
       source: fallback,
       width: 0,
       height: 0,
-      placeholder: '',
       variants: {
         card: { jpeg: fallback, webp: fallback },
         display: { jpeg: fallback, webp: fallback },
@@ -49,10 +48,9 @@ function parseGalleryValue(value: string): OptimizedImage | null {
 }
 
 function renderSlide(image: OptimizedImage, alt: string): string {
-  return renderPicture(image, 'display', alt, {
+  return renderProgressiveImage(image, 'display', alt, {
     className: 'gd-slide-image',
     decoding: 'async',
-    sizes: '100vw',
   });
 }
 
@@ -85,9 +83,7 @@ export function initGallery(): void {
   const preloadNeighbors = (): void => {
     [index - 1, index + 1].forEach((n) => {
       const j = (n + gallery.length) % gallery.length;
-      const image = gallery[j];
-      preloadImage(image.variants.display.webp);
-      preloadImage(image.variants.display.jpeg);
+      preloadImage(gallery[j].variants.display.jpeg);
     });
   };
 

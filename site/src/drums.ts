@@ -1,5 +1,5 @@
 import { drumAudio, galleries } from './generated/galleries';
-import { type OptimizedImage, renderPicture } from './images';
+import { type OptimizedImage, renderProgressiveImage } from './images';
 
 export type DrumDef = {
   slug: string;
@@ -169,11 +169,10 @@ export function renderProductCard(drum: FeaturedDrum): string {
   const soldLabel = drum.sold ? ' (Prodáno)' : '';
   const ctaLabel = drum.sold ? 'Chci podobný kus' : 'Mám zájem';
   const imageMarkup = drum.image
-    ? renderPicture(drum.image, 'card', drum.imageAlt, {
+    ? renderProgressiveImage(drum.image, 'card', drum.imageAlt, {
         className: 'product-image',
         loading: 'lazy',
         decoding: 'async',
-        sizes: '(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 300px',
       })
     : `<span class="product-image product-image-placeholder" role="img" aria-label="${drum.imageAlt}"></span>`;
 
