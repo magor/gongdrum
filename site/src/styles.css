@@ -43,7 +43,7 @@ body {
 }
 
 body::before {
-  background: var(--bg-image-fallback) center / cover no-repeat;
+  background: var(--bg-image, url("./obrazky/vesmirna_mlhovina.png")) center / cover no-repeat;
   content: "";
   filter: brightness(0.7) saturate(1.2);
   inset: 0;
@@ -51,15 +51,6 @@ body::before {
   pointer-events: none;
   position: fixed;
   z-index: 0;
-}
-
-@supports (background-image: image-set(url("a") type("image/webp"))) {
-  body::before {
-    background-image: image-set(
-      var(--bg-image-webp) type("image/webp"),
-      var(--bg-image-fallback) type("image/jpeg")
-    );
-  }
 }
 
 body::after {
