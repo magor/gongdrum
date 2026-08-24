@@ -1,6 +1,8 @@
 import './styles.css';
 import { initAudioPlayers } from './audio-players';
 import { featuredDrums, renderProductCard } from './drums';
+import { sharedImages } from './generated/galleries';
+import { renderPicture } from './images';
 import { initGallery, renderGalleryLightbox } from './gallery';
 import { initNav } from './nav';
 
@@ -20,7 +22,7 @@ const workshops = [
     title: 'Workshop výroby GongDrumu',
     copy:
       'Intenzivní pobyt v kovárně, kde pod vedením Vojtěcha vzniká vlastní menší nebo orchestrální GongDrum.',
-    infoImage: './obrazky/workshop_vyroby_gongdrumu.jpg',
+    infoImage: sharedImages.workshop_vyroby_gongdrumu,
     infoCaption: 'Workshop výroby GongDrumu',
   },
 ];
@@ -32,7 +34,7 @@ function renderWorkshopCard(workshop: (typeof workshops)[number]): string {
           type="button"
           class="workshop-info-link"
           data-gallery-opener
-          data-gallery-fallback="${workshop.infoImage}"
+          data-gallery-fallback="${encodeURIComponent(JSON.stringify(workshop.infoImage))}"
           data-gallery-caption="${workshop.infoCaption || workshop.title}"
           aria-label="Více informací: ${workshop.title}"
         >
@@ -56,17 +58,39 @@ const news = [
   'Ve vývoji je GongDrum laděný do devíti solfeggio frekvencí.',
 ];
 
+const logoMarkup = renderPicture(sharedImages.logo_upraveno, 'card', 'Gong Drum', {
+  className: 'logo-image',
+  loading: 'eager',
+  decoding: 'async',
+  width: 861,
+  height: 850,
+  sizes: '180px',
+});
+
+const heroLogoMarkup = renderPicture(sharedImages.logo_upraveno, 'display', 'Gong Drum logo', {
+  className: 'logo-hero',
+  loading: 'eager',
+  decoding: 'async',
+  width: 861,
+  height: 850,
+  sizes: '(max-width: 900px) 70vw, 420px',
+});
+
+const backgroundImage = sharedImages.vesmirna_mlhovina;
+document.documentElement.style.setProperty(
+  '--bg-image-webp',
+  `url("${backgroundImage.variants.display.webp}")`,
+);
+document.documentElement.style.setProperty(
+  '--bg-image-fallback',
+  `url("${backgroundImage.variants.display.jpeg}")`,
+);
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main class="site-shell">
     <nav class="nav" aria-label="Hlavní navigace">
       <a class="logo" href="#top" aria-label="Gong Drum home">
-        <img
-          src="./obrazky/logo_upraveno.png"
-          alt="Gong Drum"
-          class="logo-image"
-          width="861"
-          height="850"
-        />
+        ${logoMarkup}
       </a>
       <button
         class="nav-toggle"
@@ -90,13 +114,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <section id="top" class="hero">
       <div class="hero-copy">
-        <img
-          src="./obrazky/logo_upraveno.png"
-          alt="Gong Drum logo"
-          class="logo-hero"
-          width="861"
-          height="850"
-        />
+        ${heroLogoMarkup}
         <p class="slogan">Tvoř vesmír!</p>
         <p class="eyebrow">Ručně kované GongDrumy</p>
         <h1>Ručně vyráběné GongDrumy pro hluboký, živý zvuk</h1>
