@@ -1,3 +1,6 @@
+import type { OptimizedImage } from './images';
+import { renderPicture } from './images';
+
 export function renderGalleryLightbox(): string {
   return `
     <div
@@ -13,7 +16,7 @@ export function renderGalleryLightbox(): string {
         <button class="gd-close" type="button" aria-label="Zavřít" data-close>✕</button>
         <button class="gd-nav gd-prev" type="button" aria-label="Předchozí snímek">‹</button>
         <figure class="gd-stage">
-          <img id="gdSlide" alt="" />
+          <div id="gdSlide" class="gd-slide" aria-live="polite"></div>
           <figcaption id="gdCaption"></figcaption>
         </figure>
         <button class="gd-nav gd-next" type="button" aria-label="Další snímek">›</button>
@@ -23,9 +26,44 @@ export function renderGalleryLightbox(): string {
   `;
 }
 
+function parseGalleryValue(value: string): OptimizedImage | null {
+  if (!value) return null;
+
+  try {
+    return JSON.parse(decodeURIComponent(value)) as OptimizedImage;
+  } catch {
+    const fallback = value.trim();
+    if (!fallback) return null;
+
+    return {
+      source: fallback,
+      width: 0,
+      height: 0,
+      placeholder: '',
+      variants: {
+        card: { jpeg: fallback, webp: fallback },
+        display: { jpeg: fallback, webp: fallback },
+      },
+    };
+  }
+}
+
+function renderSlide(image: OptimizedImage, alt: string): string {
+  return renderPicture(image, 'display', alt, {
+    className: 'gd-slide-image',
+    decoding: 'async',
+    sizes: '100vw',
+  });
+}
+
+function preloadImage(url: string): void {
+  const img = new Image();
+  img.src = url;
+}
+
 export function initGallery(): void {
   const lightbox = document.getElementById('gdLightbox');
-  const slideEl = document.getElementById('gdSlide') as HTMLImageElement | null;
+  const slideEl = document.getElementById('gdSlide');
   const captionEl = document.getElementById('gdCaption');
   const counterEl = document.getElementById('gdCounter');
   const btnPrev = lightbox?.querySelector<HTMLButtonElement>('.gd-prev');
@@ -35,7 +73,7 @@ export function initGallery(): void {
     return;
   }
 
-  let gallery: string[] = [];
+  let gallery: OptimizedImage[] = [];
   let index = 0;
   let lastFocus: HTMLElement | null = null;
   let touchX: number | null = null;
@@ -47,8 +85,9 @@ export function initGallery(): void {
   const preloadNeighbors = (): void => {
     [index - 1, index + 1].forEach((n) => {
       const j = (n + gallery.length) % gallery.length;
-      const img = new Image();
-      img.src = gallery[j];
+      const image = gallery[j];
+      preloadImage(image.variants.display.webp);
+      preloadImage(image.variants.display.jpeg);
     });
   };
 
@@ -56,8 +95,8 @@ export function initGallery(): void {
     if (!gallery.length) return;
 
     index = (nextIndex + gallery.length) % gallery.length;
-    slideEl.src = gallery[index];
-    slideEl.alt = captionEl.textContent || '';
+    const image = gallery[index];
+    slideEl.innerHTML = renderSlide(image, captionEl.textContent || '');
     setCounter();
     preloadNeighbors();
   };
@@ -66,12 +105,12 @@ export function initGallery(): void {
     lightbox.classList.remove('open');
     lightbox.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    slideEl.removeAttribute('src');
+    slideEl.innerHTML = '';
     gallery = [];
     lastFocus?.focus();
   };
 
-  const open = (images: string[], startIndex: number, caption: string): void => {
+  const open = (images: OptimizedImage[], startIndex: number, caption: string): void => {
     if (!images.length) return;
 
     lastFocus = document.activeElement as HTMLElement | null;
@@ -125,9 +164,9 @@ export function initGallery(): void {
     opener.addEventListener('click', () => {
       const images = (opener.getAttribute('data-gallery') || '')
         .split(',')
-        .map((item) => item.trim())
-        .filter(Boolean);
-      const fallback = opener.getAttribute('data-gallery-fallback');
+        .map((item) => parseGalleryValue(item))
+        .filter((item): item is OptimizedImage => item !== null);
+      const fallback = parseGalleryValue(opener.getAttribute('data-gallery-fallback') || '');
       const resolved = images.length ? images : fallback ? [fallback] : [];
       const startIndex = Number.parseInt(opener.getAttribute('data-gallery-start') || '0', 10);
       const caption = opener.getAttribute('data-gallery-caption') || '';

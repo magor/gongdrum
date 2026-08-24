@@ -1,4 +1,5 @@
 import { drumAudio, galleries } from './generated/galleries';
+import { type OptimizedImage, renderPicture } from './images';
 
 export type DrumDef = {
   slug: string;
@@ -8,9 +9,9 @@ export type DrumDef = {
 };
 
 export type FeaturedDrum = DrumDef & {
-  image: string;
+  image: OptimizedImage | null;
   imageAlt: string;
-  gallery: string[];
+  gallery: OptimizedImage[];
   audio?: string;
   sold?: boolean;
 };
@@ -115,7 +116,7 @@ const drumCatalog: DrumDef[] = [
 
 function enrichDrum(drum: DrumDef): FeaturedDrum {
   const gallery = galleries[drum.slug] ?? [];
-  const image = gallery[0] ?? '';
+  const image = gallery[0] ?? null;
 
   return {
     ...drum,
@@ -125,6 +126,12 @@ function enrichDrum(drum: DrumDef): FeaturedDrum {
     audio: drumAudio[drum.slug],
     sold: SOLD_DRUM_SLUGS.has(drum.slug),
   };
+}
+
+function serializeGallery(images: OptimizedImage[]): string {
+  return images
+    .map((image) => encodeURIComponent(JSON.stringify(image)))
+    .join(',');
 }
 
 export const featuredDrums: FeaturedDrum[] = drumCatalog
@@ -162,8 +169,15 @@ export function renderProductCard(drum: FeaturedDrum): string {
   const soldLabel = drum.sold ? ' (Prodáno)' : '';
   const ctaLabel = drum.sold ? 'Chci podobný kus' : 'Mám zájem';
   const imageMarkup = drum.image
-    ? `<img class="product-image" src="${drum.image}" alt="${drum.imageAlt}" loading="lazy" />`
+    ? renderPicture(drum.image, 'card', drum.imageAlt, {
+        className: 'product-image',
+        loading: 'lazy',
+        decoding: 'async',
+        sizes: '(max-width: 640px) 100vw, (max-width: 1100px) 45vw, 300px',
+      })
     : `<span class="product-image product-image-placeholder" role="img" aria-label="${drum.imageAlt}"></span>`;
+
+  const galleryFallback = drum.image ? encodeURIComponent(JSON.stringify(drum.image)) : '';
 
   return `
     <article class="product-card${drum.sold ? ' is-sold' : ''}">
@@ -171,8 +185,8 @@ export function renderProductCard(drum: FeaturedDrum): string {
         type="button"
         class="product-image-button${drum.gallery.length ? '' : ' is-disabled'}"
         data-gallery-opener
-        data-gallery="${drum.gallery.join(',')}"
-        data-gallery-fallback="${drum.image}"
+        data-gallery="${serializeGallery(drum.gallery)}"
+        data-gallery-fallback="${galleryFallback}"
         data-gallery-start="0"
         data-gallery-caption="${drum.name}"
         aria-label="Otevřít galerii: ${drum.name}${soldLabel}"

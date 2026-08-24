@@ -43,7 +43,7 @@ body {
 }
 
 body::before {
-  background: url("/obrazky/vesmirna_mlhovina.png") center / cover no-repeat;
+  background: var(--bg-image-fallback) center / cover no-repeat;
   content: "";
   filter: brightness(0.7) saturate(1.2);
   inset: 0;
@@ -51,6 +51,15 @@ body::before {
   pointer-events: none;
   position: fixed;
   z-index: 0;
+}
+
+@supports (background-image: image-set(url("a") type("image/webp"))) {
+  body::before {
+    background-image: image-set(
+      var(--bg-image-webp) type("image/webp"),
+      var(--bg-image-fallback) type("image/jpeg")
+    );
+  }
 }
 
 body::after {
@@ -101,10 +110,15 @@ a {
   gap: 0.75rem;
 }
 
-.logo-image {
+.logo-image,
+.logo picture img {
   display: block;
   height: 3rem;
   width: auto;
+}
+
+.logo picture {
+  display: block;
 }
 
 .nav-links {
@@ -165,7 +179,17 @@ a {
   padding-top: 3rem;
 }
 
-.logo-hero {
+.logo-hero,
+.hero-copy picture {
+  display: block;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  max-width: min(420px, 68vw);
+  width: 100%;
+}
+
+.logo-hero,
+.hero-copy picture img {
   display: block;
   height: auto;
   margin: 0 auto 1.5rem;
@@ -357,9 +381,23 @@ h3 {
   position: relative;
 }
 
+.product-image-wrap picture,
 .product-image {
   aspect-ratio: 1.2;
   background: #ead4b6;
+  border-radius: 1rem;
+  display: block;
+  margin-bottom: 0;
+  object-fit: cover;
+  width: 100%;
+}
+
+.product-image-wrap picture img {
+  aspect-ratio: 1.2;
+  background-color: #ead4b6;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 1rem;
   display: block;
   margin-bottom: 0;
@@ -375,7 +413,8 @@ h3 {
   cursor: default;
 }
 
-.product-image-button.is-disabled:hover .product-image {
+.product-image-button.is-disabled:hover .product-image,
+.product-image-button.is-disabled:hover picture img {
   filter: none;
 }
 
@@ -417,11 +456,13 @@ h3 {
   outline-offset: 3px;
 }
 
-.product-image-button:hover .product-image {
+.product-image-button:hover .product-image,
+.product-image-button:hover picture img {
   filter: brightness(1.05);
 }
 
-.product-card.is-sold .product-image-button:hover .product-image {
+.product-card.is-sold .product-image-button:hover .product-image,
+.product-card.is-sold .product-image-button:hover picture img {
   filter: grayscale(0.2) brightness(0.88);
 }
 
@@ -773,7 +814,24 @@ h3 {
   padding: 12px;
 }
 
+.gd-slide {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 200px;
+  width: 100%;
+}
+
+.gd-slide picture,
+.gd-slide-image {
+  display: block;
+  max-width: 100%;
+}
+
 .gd-stage img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
   max-height: 70vh;

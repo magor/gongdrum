@@ -86,6 +86,11 @@ npm run build
 Commit the new assets under `site/public/` plus any `drums.ts` changes, then push to `main`.
 GitHub Actions rebuilds the site and deploys to GitHub Pages.
 
+During build (and in CI), `scripts/optimize-images.mjs` generates responsive WebP/JPEG
+variants with progressive encoding and tiny blur placeholders. Product cards load the
+`card` size (~480px), the lightbox loads `display` (~1280px), and browsers pick WebP when
+supported. Optimized output is written to `site/public/_optimized/` and is not committed.
+
 ### Important: where to put assets
 
 | Location | Purpose |
