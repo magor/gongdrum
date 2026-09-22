@@ -5,9 +5,25 @@ vanilla TypeScript so the site builds into static files that can be hosted on Gi
 
 ## Local development
 
+Requires [Nix](https://nixos.org/) with flakes and [direnv](https://direnv.net/). The
+flake provides Node.js 22 and libvips (for `sharp` image optimization).
+
 ```bash
+direnv allow   # first time only — loads the flake shell
 npm install
 npm run dev
+```
+
+`npm run dev` starts the Vite dev server with hot reload. Open the URL it prints
+(usually `http://localhost:5173`).
+
+### Production preview
+
+Build the static site, then serve `dist/` locally:
+
+```bash
+npm run build
+npm run preview
 ```
 
 ## Production build
