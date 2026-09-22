@@ -843,6 +843,295 @@ export const galleries: Record<string, OptimizedImage[]> = {
       }
     }
   ],
+  "pentakl": [
+    {
+      "source": "./obrazky/pentakl/DSC_0875.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0875.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0875.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0875.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0875.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0877.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0877.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0877.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0877.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0877.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0878.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0878.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0878.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0878.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0878.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0879.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0879.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0879.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0879.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0879.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0880.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0880.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0880.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0880.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0880.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0881.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0881.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0881.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0881.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0881.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0882.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0882.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0882.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0882.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0882.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0883.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0883.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0883.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0883.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0883.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0884.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0884.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0884.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0884.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0884.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0886.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0886.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0886.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0886.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0886.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0889.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0889.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0889.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0889.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0889.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/pentakl/DSC_0891.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0891.card.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0891.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/pentakl/DSC_0891.display.jpg",
+          "webp": "./_optimized/obrazky/pentakl/DSC_0891.display.webp"
+        }
+      }
+    }
+  ],
+  "quasar": [
+    {
+      "source": "./obrazky/quasar/DSC_0865.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0865.card.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0865.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0865.display.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0865.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/quasar/DSC_0866.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0866.card.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0866.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0866.display.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0866.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/quasar/DSC_0867.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0867.card.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0867.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0867.display.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0867.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/quasar/DSC_0868.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0868.card.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0868.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0868.display.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0868.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/quasar/DSC_0871.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0871.card.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0871.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0871.display.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0871.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/quasar/DSC_0873.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0873.card.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0873.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0873.display.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0873.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/quasar/DSC_0874.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0874.card.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0874.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/quasar/DSC_0874.display.jpg",
+          "webp": "./_optimized/obrazky/quasar/DSC_0874.display.webp"
+        }
+      }
+    }
+  ],
   "radegast": [
     {
       "source": "./obrazky/radegast/IMG_3049.JPG",
@@ -935,6 +1224,98 @@ export const galleries: Record<string, OptimizedImage[]> = {
       }
     }
   ],
+  "sexy-om": [
+    {
+      "source": "./obrazky/sexy-om/DSC_0859.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0859.card.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0859.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0859.display.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0859.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/sexy-om/DSC_0860.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0860.card.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0860.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0860.display.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0860.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/sexy-om/DSC_0861.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0861.card.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0861.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0861.display.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0861.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/sexy-om/DSC_0862.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0862.card.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0862.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0862.display.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0862.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/sexy-om/DSC_0863.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0863.card.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0863.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0863.display.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0863.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/sexy-om/DSC_0864.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0864.card.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0864.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/sexy-om/DSC_0864.display.jpg",
+          "webp": "./_optimized/obrazky/sexy-om/DSC_0864.display.webp"
+        }
+      }
+    }
+  ],
   "stand": [
     {
       "source": "./obrazky/stand/img_5053_optimized.jpg",
@@ -1008,6 +1389,113 @@ export const galleries: Record<string, OptimizedImage[]> = {
         "display": {
           "jpeg": "./_optimized/obrazky/stand/img_5057_optimized.display.jpg",
           "webp": "./_optimized/obrazky/stand/img_5057_optimized.display.webp"
+        }
+      }
+    }
+  ],
+  "stormy-full-moon": [
+    {
+      "source": "./obrazky/stormy-full-moon/DSC_0893.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0893.card.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0893.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0893.display.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0893.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/stormy-full-moon/DSC_0894.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0894.card.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0894.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0894.display.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0894.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/stormy-full-moon/DSC_0896.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0896.card.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0896.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0896.display.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0896.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/stormy-full-moon/DSC_0897.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0897.card.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0897.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0897.display.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0897.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/stormy-full-moon/DSC_0901.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0901.card.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0901.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0901.display.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0901.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/stormy-full-moon/DSC_0905.JPG",
+      "width": 4928,
+      "height": 3264,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0905.card.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0905.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/DSC_0905.display.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/DSC_0905.display.webp"
+        }
+      }
+    },
+    {
+      "source": "./obrazky/stormy-full-moon/IMG_5162.JPG",
+      "width": 4032,
+      "height": 3024,
+      "variants": {
+        "card": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/IMG_5162.card.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/IMG_5162.card.webp"
+        },
+        "display": {
+          "jpeg": "./_optimized/obrazky/stormy-full-moon/IMG_5162.display.jpg",
+          "webp": "./_optimized/obrazky/stormy-full-moon/IMG_5162.display.webp"
         }
       }
     }
@@ -1393,6 +1881,21 @@ export const sharedImages: Record<string, OptimizedImage> = {
       "display": {
         "jpeg": "./_optimized/obrazky/workshop_vyroby_gongdrumu.display.jpg",
         "webp": "./_optimized/obrazky/workshop_vyroby_gongdrumu.display.webp"
+      }
+    }
+  },
+  "hero": {
+    "source": "./obrazky/hero.jpg",
+    "width": 3088,
+    "height": 2316,
+    "variants": {
+      "card": {
+        "jpeg": "./_optimized/obrazky/hero.card.jpg",
+        "webp": "./_optimized/obrazky/hero.card.webp"
+      },
+      "display": {
+        "jpeg": "./_optimized/obrazky/hero.display.jpg",
+        "webp": "./_optimized/obrazky/hero.display.webp"
       }
     }
   }

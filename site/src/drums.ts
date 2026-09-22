@@ -30,6 +30,34 @@ const SOLD_DRUM_SLUGS = new Set([
 
 const drumCatalog: DrumDef[] = [
   {
+    slug: 'pentakl',
+    name: 'Pentakl',
+    meta: 'F2 / A = 432 Hz',
+    description:
+      'Tento GongDrum v sobě nese záměr ochrany pěti živlů proti černé magii. Má jediný příkaz: <strong>neubližovat</strong>. Pokud by jej někdo chtěl použít k nekalým účelům, nebude mu sloužit. Tento program je do něj vložen natrvalo.<br><br>Ve svém středu si Pentakl vybral tón <strong>F2 v ladění A = 432 Hz</strong>, který se rozeznívá také v cípech <strong>vzduchu a vody</strong>. Cíp <strong>země</strong> nese tón G, <strong>oheň</strong> tón B/H a v horním cípu <strong>ducha</strong> zní A♯ společně s frekvencí <strong>111 Hz</strong>, někdy označovanou jako andělská.<br><br>Každý z pěti cípů má navíc vlastní charakter a rozeznívá jiné alikvoty. Například v cípu země se objevuje <strong>174 Hz</strong>, frekvence řazená k modernímu systému Solfeggio.<br><br><strong>Pět živlů. Pět cípů. Jeden záměr – ochrana.</strong>',
+  },
+  {
+    slug: 'stormy-full-moon',
+    name: 'Stormy Full Moon',
+    meta: '196 / 121 / 85,7 Hz',
+    description:
+      'Vznikl během jediné noci při bouřkovém úplňku <strong>29. 7. 2026</strong>. Poté několikrát prošel popouštěním plamenem a postupným dolaďováním, až si našel své frekvence: <strong>196 Hz (G v ladění A = 440 Hz), 121 Hz (B/H v A = 432 Hz) a 85,7 Hz (F v A = 432 Hz).</strong><br><br>Jeho zvuk je hluboký, vrstevnatý a plný vzájemně se prolínajících vibrací. <strong>Stormy Full Moon působí jako vesmírná loď, která vás vezme na cestu kolem Slunce a Měsíce – a možná ještě o kus dál.</strong>',
+  },
+  {
+    slug: 'quasar',
+    name: 'Quasar',
+    meta: '128,4 Hz / A = 432 Hz',
+    description:
+      'Naladěný na <strong>128,4 Hz (C v ladění A = 432 Hz)</strong>. Široký, plný zvuk s bohatým spektrem alikvot, které se při rozehrání postupně vynořují, prolínají a zářivě rozpínají do prostoru.<br><br>Stejně jako skutečný kvazar, jehož obrovská energie vychází z oblasti kolem supermasivní černé díry, i tento GongDrum působí, jako by měl svůj <strong>energetický střed</strong>, ze kterého se zvuk šíří do všech směrů. Čím déle hraje, tím více vrstev odhaluje – od hlubokého základního tónu až po jasné, vzdálené alikvoty.',
+  },
+  {
+    slug: 'sexy-om',
+    name: 'Sexy Om',
+    meta: '69 Hz / Óm 136,1 Hz',
+    description:
+      'Podmanivý zvuk tohoto GongDrumu si po kvantování sexuální energií vybral frekvenci <strong>69 Hz</strong> s alikvotou na <strong>136,1 Hz</strong>, tedy Óm.',
+  },
+  {
     slug: 'window-to-the-universe',
     name: 'Window to the Universe',
     meta: 'průměr 1000 mm',
@@ -95,16 +123,16 @@ const drumCatalog: DrumDef[] = [
   {
     slug: 'nobody',
     name: 'Nobody',
-    meta: 'Nobody',
+    meta: 'F / A = 432 Hz',
     description:
-      'TODO popis',
+      'Experimentální GongDrum laděný jako obvykle v osmi směrech. Jeho zvláštnost spočívá v samotném rozložení tónů: <strong>protilehlé strany jsou naladěny podobně, zatímco sousední směry nesou odlišné tóny.</strong><br><br>Při hře na 2 protilehlé strany zároveň se tak pokaždé probouzí trochu jiná alikvota a charakter zvuku se mění podle toho, kudy nástrojem „procházíte“. Nobody díky tomu nabízí široké možnosti rytmické i melodické hry. Jeho základní středový tón je F (ve 432 Hz).<br><br>Je vyroben ze <strong>silnějšího plechu</strong>, takže snese energičtější způsob hraní a dokáže odpovědět výrazným, hutným zvukem.',
   },
   {
     slug: 'om-spiral',
     name: 'Om Spiral',
-    meta: 'Om Spiral',
+    meta: '136,1 Hz / Óm',
     description:
-      'TODO popis',
+      'Zvuky GongDrumů spirály milují. Tento kousek je v základu naladěn na <strong>136,1 Hz (C♯, Óm)</strong> a jeho výrazné alikvoty se pohybují velmi blízko základnímu tónu, kolem <strong>D (144 Hz)</strong> a <strong>D♯ (152,7 Hz)</strong>. Díky tomu se jednotlivé frekvence prolínají a vytvářejí nezvykle živý, široký zvuk.<br><br>Přiznávám, že chvíli trvalo, než jsem si k jeho specifickému charakteru našel cestu. O to víc mě ale dnes baví – stal se jedním z mých nejoblíbenějších malých GongDrumů.',
   },
   {
     slug: 'stand',
@@ -198,7 +226,7 @@ export function renderProductCard(drum: FeaturedDrum): string {
       </button>
       <div class="product-meta">${drum.meta}</div>
       <h3>${drum.name}</h3>
-      <p>${drum.description}</p>
+      <div class="product-description">${drum.description}</div>
       ${renderGongPlayer(drum)}
       <a href="#contact">${ctaLabel}</a>
     </article>

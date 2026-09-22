@@ -2,7 +2,7 @@ import './styles.css';
 import { initAudioPlayers } from './audio-players';
 import { featuredDrums, renderProductCard } from './drums';
 import { sharedImages } from './generated/galleries';
-import { renderPicture } from './images';
+import { renderPicture, renderProgressiveImage } from './images';
 import { initGallery, renderGalleryLightbox } from './gallery';
 import { initNav } from './nav';
 
@@ -76,6 +76,17 @@ const heroLogoMarkup = renderPicture(sharedImages.logo_upraveno, 'display', 'Gon
   sizes: '(max-width: 900px) 70vw, 420px',
 });
 
+const heroCoverMarkup = renderProgressiveImage(
+  sharedImages.hero,
+  'display',
+  'GongDrum – úvodní fotografie',
+  {
+    className: 'hero-cover-image',
+    loading: 'eager',
+    decoding: 'async',
+  },
+);
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <main class="site-shell">
     <nav class="nav" aria-label="Hlavní navigace">
@@ -106,24 +117,22 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="hero-copy">
         ${heroLogoMarkup}
         <p class="slogan">Tvoř vesmír!</p>
-        <p class="eyebrow">Ručně kované GongDrumy</p>
-        <h1>Ručně vyráběné GongDrumy pro hluboký, živý zvuk</h1>
+        <h1>Není to gong, není to drum.</h1>
+        <p class="hero-lead">Je to GongDrum – šamanský gong</p>
         <p class="hero-text">
-          Originální nástroje Vojtěcha Hrubého spojují gong a šamanský buben.
-          Každý kus je laděn s respektem k proporcím, harmonii a osobitému příběhu.
+          GongDrum je originální, ručně tepaný nástroj spojující prvky gongu a šamanského bubnu.
+          Je určen k živé rytmické hře navozující změněný stav vědomí a zároveň laděn do
+          harmonizačních frekvencí. Své využití nalézá u muzikoterapeutů, šamanů, v soundhealingu
+          a v meditační praxi. Také pro kohokoli, kdo hledá harmonii zvuku.
         </p>
+        <p class="hero-warning">Upozornění! Hra na GongDrum může být návyková :-)</p>
         <div class="hero-actions">
           <a class="button primary" href="#collection">Prohlédnout galerii</a>
           <a class="button secondary" href="#contact">Chci podobný kus</a>
         </div>
       </div>
-      <div class="hero-card" aria-label="Vybraný GongDrum">
-        <div class="gong-illustration">
-          <span class="gong-ring ring-one"></span>
-          <span class="gong-ring ring-two"></span>
-          <span class="gong-ring ring-three"></span>
-        </div>
-        <strong>Nástroj pro songhealing, meditaci, rituál i společné hraní</strong>
+      <div class="hero-card" aria-label="Úvodní fotografie GongDrumu">
+        ${heroCoverMarkup}
       </div>
     </section>
 
@@ -148,15 +157,12 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
       <div class="about-copy">
         <p>
-          GongDrum propojuje elementy gongu a šamanského bubnu. Vzniká ručně, s důrazem
-          na ladění bossů do specifických frekvencí, jejich vzájemnou harmonii a dlouhý
-          organický dozvuk.
+          GongDrum je originální, ručně tepaný nástroj spojující prvky gongu a šamanského bubnu.
+          Je určen k živé rytmické hře navozující změněný stav vědomí a zároveň laděn do
+          harmonizačních frekvencí. Své využití nalézá u muzikoterapeutů, šamanů, v soundhealingu
+          a v meditační praxi. Také pro kohokoli, kdo hledá harmonii zvuku.
         </p>
-        <p>
-          Hra je především rytmická. Pravidelný puls může hráče i posluchače přivést
-          do změněného, transového stavu, ve kterém se zvuk stává oporou pro meditaci,
-          osobní praxi i společný rituál.
-        </p>
+        <p class="hero-warning">Upozornění! Hra na GongDrum může být návyková :-)</p>
       </div>
     </section>
 
