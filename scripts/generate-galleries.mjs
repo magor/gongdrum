@@ -113,7 +113,7 @@ const sharedImagePaths = [
   'obrazky/logo_upraveno.png',
   'obrazky/vesmirna_mlhovina.png',
   'obrazky/workshop_vyroby_gongdrumu.jpg',
-  'obrazky/hero.jpg',
+  'obrazky/intro.jpg',
 ];
 
 const sharedImages = Object.fromEntries(

@@ -1884,18 +1884,18 @@ export const sharedImages: Record<string, OptimizedImage> = {
       }
     }
   },
-  "hero": {
-    "source": "./obrazky/hero.jpg",
-    "width": 3088,
-    "height": 2316,
+  "intro": {
+    "source": "./obrazky/intro.jpg",
+    "width": 900,
+    "height": 1600,
     "variants": {
       "card": {
-        "jpeg": "./_optimized/obrazky/hero.card.jpg",
-        "webp": "./_optimized/obrazky/hero.card.webp"
+        "jpeg": "./_optimized/obrazky/intro.card.jpg",
+        "webp": "./_optimized/obrazky/intro.card.webp"
       },
       "display": {
-        "jpeg": "./_optimized/obrazky/hero.display.jpg",
-        "webp": "./_optimized/obrazky/hero.display.webp"
+        "jpeg": "./_optimized/obrazky/intro.display.jpg",
+        "webp": "./_optimized/obrazky/intro.display.webp"
       }
     }
   }

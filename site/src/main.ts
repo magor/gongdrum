@@ -77,7 +77,7 @@ const heroLogoMarkup = renderPicture(sharedImages.logo_upraveno, 'display', 'Gon
 });
 
 const heroCoverMarkup = renderProgressiveImage(
-  sharedImages.hero,
+  sharedImages.intro,
   'display',
   'GongDrum – úvodní fotografie',
   {
@@ -128,7 +128,13 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <p class="hero-warning">Upozornění! Hra na GongDrum může být návyková :-)</p>
         <div class="hero-actions">
           <a class="button primary" href="#collection">Prohlédnout galerii</a>
-          <a class="button secondary" href="#contact">Chci podobný kus</a>
+          <a class="button secondary" href="#contact">Napište mi</a>
+          <a
+            class="button secondary"
+            href="https://www.youtube.com/@GongDrum911/videos"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Videa na YouTube</a>
         </div>
       </div>
       <div class="hero-card" aria-label="Úvodní fotografie GongDrumu">
