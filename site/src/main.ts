@@ -5,6 +5,7 @@ import { sharedImages } from './generated/galleries';
 import { renderPicture, renderProgressiveImage } from './images';
 import { initGallery, renderGalleryLightbox } from './gallery';
 import { initNav } from './nav';
+import { renderPartnersSection } from './partners';
 
 const benefits = [
   'Každý kus vzniká ručně v dílně Gong Drum',
@@ -217,6 +218,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         Odeslat poptávku
       </a>
     </section>
+
+    ${renderPartnersSection()}
   </main>
   ${renderGalleryLightbox()}
 `;
