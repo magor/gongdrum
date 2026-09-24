@@ -1898,6 +1898,21 @@ export const sharedImages: Record<string, OptimizedImage> = {
         "webp": "./_optimized/obrazky/intro.display.webp"
       }
     }
+  },
+  "partner_terapeutovna": {
+    "source": "./obrazky/partner_terapeutovna.jpg",
+    "width": 800,
+    "height": 507,
+    "variants": {
+      "card": {
+        "jpeg": "./_optimized/obrazky/partner_terapeutovna.card.jpg",
+        "webp": "./_optimized/obrazky/partner_terapeutovna.card.webp"
+      },
+      "display": {
+        "jpeg": "./_optimized/obrazky/partner_terapeutovna.display.jpg",
+        "webp": "./_optimized/obrazky/partner_terapeutovna.display.webp"
+      }
+    }
   }
 };
 
