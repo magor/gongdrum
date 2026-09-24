@@ -212,7 +212,7 @@
         Napiš, jaký zvuk hledáš, jestli tě zajímá hotový nástroj, podobný kus na míru,
         nebo nejbližší termín workshopu.
       </p>
-      <a class="button primary" href="mailto:hello@example.com?subject=GongDrum%20poptavka">
+      <a class="button primary" href="mailto:hrubyvojtech@seznam.cz?subject=GongDrum%20poptavka">
         Odeslat poptávku
       </a>
     </section>
