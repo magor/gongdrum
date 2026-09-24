@@ -692,8 +692,61 @@ h3 {
 }
 
 .contact {
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: center;
+}
+
+.partners {
+  border-top: 1px solid var(--stroke);
+  margin-bottom: 3rem;
+  padding-top: 3rem;
+  text-align: center;
+}
+
+.partners-grid {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.partner-card {
+  backdrop-filter: saturate(120%) blur(2px);
+  background: var(--panel);
+  border: 1px solid var(--stroke);
+  border-radius: 1.25rem;
+  display: block;
+  max-width: min(100%, 280px);
+  padding: 1rem 1.25rem;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.partner-card:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 1rem 2.5rem rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+.partner-card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+.partner-logo {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  max-height: 5.5rem;
+  max-width: 100%;
+  object-fit: contain;
+  width: auto;
 }
 
 .contact p {
