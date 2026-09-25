@@ -114,6 +114,7 @@ const sharedImagePaths = [
   'obrazky/vesmirna_mlhovina.png',
   'obrazky/workshop_vyroby_gongdrumu.jpg',
   'obrazky/intro.jpg',
+  'obrazky/partner_terapeutovna.jpg',
 ];
 
 const sharedImages = Object.fromEntries(
