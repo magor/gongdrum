@@ -235,11 +235,15 @@
       <h2>Máš zájem o GongDrum nebo workshop?</h2>
       <p>
         Napiš, jaký zvuk hledáš, jestli tě zajímá hotový nástroj, podobný kus na míru,
-        nebo nejbližší termín workshopu.
+        nejbližší termín workshopu, nebo máš cokoli na srdci, co bys mi sdělil/a.
       </p>
       <a class="button primary" href="mailto:hrubyvojtech@seznam.cz?subject=GongDrum%20poptavka">
         Odeslat poptávku
       </a>
+      <p class="contact-email">
+        Nebo napiš na
+        <a href="mailto:hrubyvojtech@seznam.cz">hrubyvojtech@seznam.cz</a>
+      </p>
     </section>
 
     ${S()}
