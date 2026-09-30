@@ -38,15 +38,19 @@ The build output is written to `dist/`.
 
 Source lives under `site/`. The workflow at `.github/workflows/pages.yml` builds with Vite,
 copies the production output to the repository root (`index.html`, `assets/`, `obrazky/`),
-and deploys the same build to GitHub Pages.
+and publishes the same build to the `gh-pages` branch for hosting.
 
 This keeps the live site working when Pages is configured for legacy branch deployment from
 `/ (root)`, which would otherwise serve `site/index.html` and block `/src/main.ts` with the
 `video/mp2t` MIME type.
 
-For new setups, prefer **GitHub Actions** as the Pages source in repository settings so only
-the workflow artifact is published. The custom domain `gongdrum.cz` is configured via
-`site/public/CNAME`.
+In **Settings → Pages**, set the source to **Deploy from a branch**, branch **`gh-pages`**, folder **`/ (root)`**. PR previews use the same branch under `pr-preview/` and do not work with the “GitHub Actions” Pages source. Under **Settings → Actions → General → Workflow permissions**, choose **Read and write permissions** so preview and production workflows can update `gh-pages`.
+
+The custom domain `gongdrum.cz` is configured via `site/public/CNAME`.
+
+### Pull request previews
+
+Opening or updating a PR runs `.github/workflows/pr-preview.yml`. It builds the site and deploys a preview under `gh-pages/pr-preview/pr-<number>/`. A bot comment on the PR links to `https://gongdrum.cz/pr-preview/pr-<number>/` (or the default `*.github.io` URL if no custom domain). Previews are removed when the PR closes. Previews from fork PRs are not supported.
 
 ## Adding a new GongDrum
 
