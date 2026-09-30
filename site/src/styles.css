@@ -266,6 +266,16 @@ h3 {
   max-width: 650px;
 }
 
+.contact-email {
+  margin-top: 1.25rem;
+}
+
+.contact-email a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .hero-lead {
   color: var(--gold);
   font-size: clamp(2rem, 5vw, 3.2rem);
