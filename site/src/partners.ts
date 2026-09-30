@@ -57,11 +57,10 @@ export function renderPartnersSection(): string {
   return `
     <section id="partners" class="partners section" aria-labelledby="partners-heading">
       <div class="section-heading">
-        <p class="eyebrow">Místní podnikatelé</p>
         <h2 id="partners-heading">Partneři a přátelé GongDrumu</h2>
         <p>
-          Podporujeme malé místní podniky, které sdílejí podobné hodnoty. Kliknutím na logo
-          přejdeš na stránky partnera.
+          Spolupracujeme s lidmi sdílejícími podobné hodnoty. Kliknutím na logo přejdeš na stránky
+          partnera.
         </p>
       </div>
       <ul class="partners-grid">
