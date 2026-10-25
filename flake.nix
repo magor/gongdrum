@@ -33,6 +33,8 @@
               # sharp (image optimization) links against system libvips on NixOS
               vips
               pkg-config
+              # audio optimization (scripts/optimize-audio.mjs)
+              ffmpeg
             ];
 
             env = {

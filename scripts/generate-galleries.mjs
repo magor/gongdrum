@@ -6,6 +6,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, '..');
 const publicObrazky = path.join(root, 'site/public/obrazky');
 const publicAudio = path.join(root, 'site/public/audio');
+const optimizedAudio = path.join(root, 'site/public/_optimized/audio');
 const manifestFile = path.join(root, 'site/src/generated/image-manifest.json');
 const outFile = path.join(root, 'site/src/generated/galleries.ts');
 const backgroundCssFile = path.join(root, 'site/src/generated/background.css');
@@ -89,6 +90,9 @@ function toRootPath(relativePath) {
 }
 
 function audioPath(slug) {
+  if (fs.existsSync(path.join(optimizedAudio, `${slug}.mp3`))) {
+    return `./_optimized/audio/${slug}.mp3`;
+  }
   const file = path.join(publicAudio, `${slug}.mp3`);
   return fs.existsSync(file) ? `./audio/${slug}.mp3` : undefined;
 }
