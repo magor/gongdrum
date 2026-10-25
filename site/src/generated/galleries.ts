@@ -1925,7 +1925,10 @@ export const drumAudio: Record<string, string> = {
   "nova-genesis": "./audio/nova-genesis.mp3",
   "octopus": "./audio/octopus.mp3",
   "om-spiral": "./audio/om-spiral.mp3",
+  "pentakl": "./audio/pentakl.mp3",
+  "quasar": "./audio/quasar.mp3",
   "radegast": "./audio/radegast.mp3",
+  "sexy-om": "./audio/sexy-om.mp3",
   "sun": "./audio/sun.mp3",
   "tesla": "./audio/tesla.mp3",
   "window-to-the-universe": "./audio/window-to-the-universe.mp3"
