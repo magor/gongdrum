@@ -5,4 +5,5 @@ dist
 .direnv
 site/public/_optimized
 site/src/generated/image-manifest.json
+site/src/generated/audio-manifest.json
 site/src/generated/background.css

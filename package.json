@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:audio": "node scripts/optimize-audio.mjs",
     "generate:galleries": "node scripts/generate-galleries.mjs",
     "dev": "npm run generate:galleries && vite",
-    "build": "npm run optimize:images && npm run generate:galleries && tsc && vite build",
+    "build": "npm run optimize:images && npm run optimize:audio && npm run generate:galleries && tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
