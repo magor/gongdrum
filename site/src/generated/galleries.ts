@@ -1917,19 +1917,19 @@ export const sharedImages: Record<string, OptimizedImage> = {
 };
 
 export const drumAudio: Record<string, string> = {
-  "insight": "./_optimized/audio/insight.mp3",
-  "little-thai": "./_optimized/audio/little-thai.mp3",
-  "lotus-flower": "./_optimized/audio/lotus-flower.mp3",
-  "mandala": "./_optimized/audio/mandala.mp3",
+  "insight": "./audio/insight.mp3",
+  "little-thai": "./audio/little-thai.mp3",
+  "lotus-flower": "./audio/lotus-flower.mp3",
+  "mandala": "./audio/mandala.mp3",
   "nobody": "./_optimized/audio/nobody.mp3",
-  "nova-genesis": "./_optimized/audio/nova-genesis.mp3",
+  "nova-genesis": "./audio/nova-genesis.mp3",
   "octopus": "./_optimized/audio/octopus.mp3",
   "om-spiral": "./_optimized/audio/om-spiral.mp3",
   "pentakl": "./_optimized/audio/pentakl.mp3",
   "quasar": "./_optimized/audio/quasar.mp3",
-  "radegast": "./_optimized/audio/radegast.mp3",
+  "radegast": "./audio/radegast.mp3",
   "sexy-om": "./_optimized/audio/sexy-om.mp3",
-  "stormy-full-moon": "./_optimized/audio/stormy-full-moon.mp3",
+  "stormy-full-moon": "./audio/stormy-full-moon.mp3",
   "sun": "./_optimized/audio/sun.mp3",
   "tesla": "./_optimized/audio/tesla.mp3",
   "window-to-the-universe": "./_optimized/audio/window-to-the-universe.mp3"

@@ -10,16 +10,16 @@ const sourceRoot = path.join(root, 'site/public/audio');
 const outputRoot = path.join(root, 'site/public/_optimized/audio');
 const manifestFile = path.join(root, 'site/src/generated/audio-manifest.json');
 
-// LAME VBR quality (0 = best, 9 = smallest). V4 tops out around ~165 kbps on dense
-// strikes and drops lower on quiet decays, keeping gong shimmer clean while roughly
-// halving 240–320 kbps sources.
-const MP3_VBR_QUALITY = 4;
-// Keep the original when re-encoding saves less than this; avoids generation loss
-// on sources that are already ~128–160 kbps.
-const MIN_SAVINGS = 0.15;
-const SETTINGS_KEY = `lame-v${MP3_VBR_QUALITY}-min${MIN_SAVINGS}`;
+// Bitrate cap per channel layout. Only sources clearly above the cap are re-encoded
+// (constant bitrate, at the cap); everything else is served untouched.
+const MAX_KBPS = { mono: 128, stereo: 192 };
+// Sources within this margin above the cap are left alone; re-encoding them would
+// add generation loss for almost no size gain.
+const CAP_TOLERANCE = 1.1;
+const SETTINGS_KEY = `cbr-cap-m${MAX_KBPS.mono}-s${MAX_KBPS.stereo}-t${CAP_TOLERANCE}`;
 
 const ffmpeg = process.env.FFMPEG_PATH || 'ffmpeg';
+const ffprobe = process.env.FFPROBE_PATH || 'ffprobe';
 
 function hashFile(filePath) {
   const data = fs.readFileSync(filePath);
@@ -31,11 +31,32 @@ function readManifest() {
   return JSON.parse(fs.readFileSync(manifestFile, 'utf8'));
 }
 
-function hasFfmpeg() {
-  return spawnSync(ffmpeg, ['-version'], { stdio: 'ignore' }).status === 0;
+function hasTool(command) {
+  return spawnSync(command, ['-version'], { stdio: 'ignore' }).status === 0;
 }
 
-function encode(sourcePath, outPath) {
+function probe(sourcePath) {
+  const result = spawnSync(
+    ffprobe,
+    [
+      '-v', 'error',
+      '-select_streams', 'a:0',
+      '-show_entries', 'stream=channels:format=bit_rate',
+      '-of', 'json',
+      sourcePath,
+    ],
+    { encoding: 'utf8' },
+  );
+  if (result.status !== 0) throw new Error(`ffprobe failed for ${sourcePath}`);
+
+  const info = JSON.parse(result.stdout);
+  return {
+    channels: Number(info.streams?.[0]?.channels ?? 2),
+    kbps: Math.round(Number(info.format?.bit_rate ?? 0) / 1000),
+  };
+}
+
+function encode(sourcePath, outPath, kbps) {
   const tmpPath = `${outPath}.tmp.mp3`;
   const result = spawnSync(
     ffmpeg,
@@ -45,7 +66,7 @@ function encode(sourcePath, outPath) {
       // Audio stream only: drops embedded cover art.
       '-map', '0:a',
       '-c:a', 'libmp3lame',
-      '-q:a', String(MP3_VBR_QUALITY),
+      '-b:a', `${kbps}k`,
       tmpPath,
     ],
     { stdio: ['ignore', 'inherit', 'inherit'] },
@@ -55,16 +76,22 @@ function encode(sourcePath, outPath) {
     throw new Error(`ffmpeg failed for ${sourcePath}`);
   }
 
-  const sourceSize = fs.statSync(sourcePath).size;
-  const encodedSize = fs.statSync(tmpPath).size;
-  if (encodedSize > sourceSize * (1 - MIN_SAVINGS)) {
-    fs.rmSync(tmpPath);
-    fs.copyFileSync(sourcePath, outPath);
-    return { reencoded: false, size: sourceSize };
+  fs.renameSync(tmpPath, outPath);
+  return fs.statSync(outPath).size;
+}
+
+function processTrack(sourcePath, outPath, sourceHash, sourceSize) {
+  const { channels, kbps } = probe(sourcePath);
+  const capKbps = channels === 1 ? MAX_KBPS.mono : MAX_KBPS.stereo;
+  const base = { sourceHash, settings: SETTINGS_KEY, sourceSize, sourceKbps: kbps };
+
+  if (kbps <= capKbps * CAP_TOLERANCE) {
+    fs.rmSync(outPath, { force: true });
+    return { ...base, reencoded: false, kbps, size: sourceSize };
   }
 
-  fs.renameSync(tmpPath, outPath);
-  return { reencoded: true, size: encodedSize };
+  const size = encode(sourcePath, outPath, capKbps);
+  return { ...base, reencoded: true, kbps: capKbps, size };
 }
 
 function main() {
@@ -73,9 +100,9 @@ function main() {
     return;
   }
 
-  if (!hasFfmpeg()) {
+  if (!hasTool(ffmpeg) || !hasTool(ffprobe)) {
     if (process.env.CI) {
-      console.error('ffmpeg is required to optimize audio in CI.');
+      console.error('ffmpeg and ffprobe are required to optimize audio in CI.');
       process.exit(1);
     }
     console.warn('ffmpeg not found, skipping audio optimization (originals will be served).');
@@ -92,6 +119,7 @@ function main() {
     .sort();
   const tracks = {};
   let reused = 0;
+  let reencoded = 0;
   let totalBefore = 0;
   let totalAfter = 0;
 
@@ -106,23 +134,24 @@ function main() {
     if (
       cached?.sourceHash === sourceHash &&
       cached?.settings === SETTINGS_KEY &&
-      fs.existsSync(outPath)
+      (!cached.reencoded || fs.existsSync(outPath))
     ) {
       entry = cached;
       reused += 1;
     } else {
-      const { reencoded, size } = encode(sourcePath, outPath);
-      entry = { sourceHash, settings: SETTINGS_KEY, reencoded, sourceSize, size };
+      entry = processTrack(sourcePath, outPath, sourceHash, sourceSize);
     }
 
     tracks[file] = entry;
+    if (entry.reencoded) reencoded += 1;
     totalBefore += sourceSize;
     totalAfter += entry.size;
   }
 
-  // Remove outputs whose source no longer exists.
+  // Only re-encoded tracks live in the output dir; untouched ones are served from
+  // site/public/audio. Remove anything else (stale or no longer re-encoded).
   for (const file of fs.readdirSync(outputRoot)) {
-    if (tracks[file]) continue;
+    if (tracks[file]?.reencoded) continue;
     fs.rmSync(path.join(outputRoot, file), { force: true });
   }
 
@@ -130,8 +159,8 @@ function main() {
 
   const mb = (bytes) => (bytes / 1024 / 1024).toFixed(1);
   console.log(
-    `Optimized ${files.length} audio tracks (${reused} cached, ${files.length - reused} processed): ` +
-      `${mb(totalBefore)} MB -> ${mb(totalAfter)} MB.`,
+    `Checked ${files.length} audio tracks (${reused} cached, ${reencoded} capped, ` +
+      `${files.length - reencoded} served as-is): ${mb(totalBefore)} MB -> ${mb(totalAfter)} MB.`,
   );
 }
 
